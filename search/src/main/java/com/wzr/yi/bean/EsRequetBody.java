@@ -14,4 +14,5 @@ public class EsRequetBody {
     private String mapping;
     private String fields;
     private String excludes;
+    private String json;
 }

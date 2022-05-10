@@ -2,9 +2,12 @@ package com.wzr.yi.util;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.wzr.yi.bean.EsRequetBody;
+import com.wzr.yi.exception.BadRequestException;
 import com.wzr.yi.util.Dto.EsPage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsResponse;
@@ -19,12 +22,15 @@ import org.elasticsearch.action.support.master.AcknowledgedResponse;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.text.Text;
+import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.index.query.MatchAllQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -32,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ExecutionException;
 
 
 /**
@@ -110,6 +117,18 @@ public class ElasticSearchUtil {
         return inExistsResponse.isExists();
     }
 
+    public CreateIndexResponse createIndex(EsRequetBody esRequetBody) throws ExecutionException, InterruptedException {
+        String indexName = esRequetBody.getIndexName();
+        if(indexName == null){
+            throw new BadRequestException("索引名字不能为空");
+        }
+        CreateIndexRequest index = new CreateIndexRequest(indexName);
+        //定义json格式映射
+        if(esRequetBody.getJson()!=null){
+            index.mapping(indexName,esRequetBody.getJson(), XContentType.JSON);
+        }
+        return transportClient.admin().indices().create(index).get();
+    }
     /**
      * 数据添加，正定ID
      *

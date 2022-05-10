@@ -1,20 +1,14 @@
 package com.wzr.yi.rest;
 
 import com.wzr.yi.bean.EsRequetBody;
-import com.wzr.yi.service.indexService;
-
-import com.alibaba.fastjson.JSONObject;
+import com.wzr.yi.service.IndexService;
 
 import lombok.RequiredArgsConstructor;
-import org.elasticsearch.action.get.GetRequestBuilder;
-import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.client.transport.TransportClient;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.search.SearchHits;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 /**
  * @autor zhenrenwu
@@ -26,17 +20,24 @@ import java.util.Map;
 @RequestMapping("/es")
 public class IndexController {
 
-    private final indexService indexService;
-    @RequestMapping("/getIndices")
-    @ResponseBody
-    public boolean getIndices(@RequestBody EsRequetBody esRequetBody){
-        return indexService.createIndex();
-    }
+    private final IndexService indexService;
+//    @RequestMapping("/getIndices")
+//    @ResponseBody
+//    public ResponseEntity getIndices(@RequestBody EsRequetBody esRequetBody) throws ExecutionException, InterruptedException {
+//
+//    }
 
     @RequestMapping("/redis")
-    public boolean getRedis(@RequestBody EsRequetBody esRequetBody){
+    public boolean getRedis(EsRequetBody esRequetBody){
         return indexService.redis();
     }
+
+    @RequestMapping("/createIndex")
+    public ResponseEntity createIndex(@RequestBody EsRequetBody esRequetBody) throws ExecutionException, InterruptedException {
+        return indexService.createIndex(esRequetBody);
+    }
+
+
 //    @GetMapping("/getData")
 //    @ResponseBody
 //    public String getData(@RequestBody EsRequetBody esRequetBody){

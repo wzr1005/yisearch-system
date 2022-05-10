@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.wzr.yi.mapper">
+
+    <select id="findAllEnabledChannel" resultMap="AllChannel">
+        select p.page_id, p.app_id, p.name, p.code, p.sort, p.enabled, p.is_caching_card_recommend,
+               c.card_id, c.page_id as cardPageId, c.card_code, c.card_name, c.strategy_id, c.number,
+               c.sort as cardSort, c.enabled as cardEnabled from app_page p, app_page_card c
+        where p.page_id = c.page_id and p.enabled = 1 and c.enabled = 1 order by sort, cardSort
+    </select>
+    <resultMap id="AllChannel" type="com.tigerobo.dasheng.search.model.domain.Channel">
+        <result property="id" column="page_id"/>
+        <result property="appId" column="app_id"/>
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+        <result property="sort" column="sort"/>
+        <result property="enabled" column="enabled"/>
+        <result property="isCachingCardRecommend" column="is_caching_card_recommend"/>
+        <collection property="channelCards" ofType="com.tigerobo.dasheng.search.model.domain.ChannelCard">
+            <result property="id" column="card_id"/>
+            <result property="pageId" column="cardPageId"/>
+            <result property="cardCode" column="card_code"/>
+            <result property="cardName" column="card_name"/>
+            <result property="strategyId" column="strategy_id"/>
+            <result property="number" column="number"/>
+            <result property="sort" column="cardSort"/>
+            <result property="enabled" column="cardEnabled"/>
+        </collection>
+    </resultMap>
+
+</mapper>
