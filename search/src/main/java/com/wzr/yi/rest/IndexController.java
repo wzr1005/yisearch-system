@@ -1,9 +1,14 @@
 package com.wzr.yi.rest;
 
+import com.alibaba.fastjson.JSONObject;
 import com.wzr.yi.bean.EsRequetBody;
 import com.wzr.yi.service.IndexService;
 
 import lombok.RequiredArgsConstructor;
+import org.elasticsearch.action.get.GetRequestBuilder;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.SearchHits;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,8 +46,8 @@ public class IndexController {
 //    @GetMapping("/getData")
 //    @ResponseBody
 //    public String getData(@RequestBody EsRequetBody esRequetBody){
-////        if(StringUtils.isNotBlank(esRequetBody.getId())) {
-////        Map<String, Object> map= ElasticsearchUtil.searchDataById(esRequetBody.getIndexName(),esRequetBody.getType(),esRequetBody.getId(),esRequetBody.getFields());
+//        if(StringUtils.isNotBlank(esRequetBody.getId())) {
+//        Map<String, Object> map= ElasticsearchUtil.searchDataById(esRequetBody.getIndexName(),esRequetBody.getType(),esRequetBody.getId(),esRequetBody.getFields());
 //        GetRequestBuilder getRequestBuilder = transportClient.prepareGet(esRequetBody.getIndexName(), esRequetBody.getType(), esRequetBody.getId());
 //
 //        SearchResponse searchResponse = transportClient.prepareSearch(esRequetBody.getIndexName()).setTypes(esRequetBody.getType()).setQuery(QueryBuilders
@@ -50,10 +55,6 @@ public class IndexController {
 //
 //        SearchHits map = searchResponse.getHits();
 //        return JSONObject.toJSONString(map);
-////        }
-////        else{
-////            return "id为空";
-////        }
 //    }
 
 //    @PostMapping("/createIndex")
