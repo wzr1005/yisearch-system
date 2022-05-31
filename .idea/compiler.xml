@@ -12,7 +12,6 @@
         <module name="common" />
         <module name="login" />
         <module name="friends" />
-        <module name="dataprocess" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

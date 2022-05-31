@@ -22,6 +22,6 @@ public class searchController {
 
     @GetMapping("/testdb")
     public String testDb(){
-        return
+        return null;
     }
 }
