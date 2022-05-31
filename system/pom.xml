@@ -72,36 +72,36 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba</groupId>-->
-<!--            <artifactId>druid</artifactId>-->
-<!--            <version>1.1.20</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash;         sharding-jdbc部分,引入本部分则注释掉下面数据治理的依赖&ndash;&gt;-->
-<!--        &lt;!&ndash;         shardingsphere-jdbc&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.shardingsphere</groupId>-->
-<!--            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>-->
-<!--            <version>4.0.0-RC2</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash;         support spring xml config&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.apache.shardingsphere</groupId>-->
-<!--            <artifactId>sharding-jdbc-spring-namespace</artifactId>-->
-<!--            <version>4.0.0-RC2</version>-->
-<!--        </dependency>-->
-<!--        &lt;!&ndash; 连接池  &ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba</groupId>-->
-<!--            <artifactId>druid-spring-boot-starter</artifactId>-->
-<!--            <version>1.1.5</version>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba</groupId>-->
+        <!--            <artifactId>druid</artifactId>-->
+        <!--            <version>1.1.20</version>-->
+        <!--        </dependency>-->
+        <!--        &lt;!&ndash;         sharding-jdbc部分,引入本部分则注释掉下面数据治理的依赖&ndash;&gt;-->
+        <!--        &lt;!&ndash;         shardingsphere-jdbc&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.shardingsphere</groupId>-->
+        <!--            <artifactId>sharding-jdbc-spring-boot-starter</artifactId>-->
+        <!--            <version>4.0.0-RC2</version>-->
+        <!--        </dependency>-->
+        <!--        &lt;!&ndash;         support spring xml config&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.shardingsphere</groupId>-->
+        <!--            <artifactId>sharding-jdbc-spring-namespace</artifactId>-->
+        <!--            <version>4.0.0-RC2</version>-->
+        <!--        </dependency>-->
+        <!--        &lt;!&ndash; 连接池  &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba</groupId>-->
+        <!--            <artifactId>druid-spring-boot-starter</artifactId>-->
+        <!--            <version>1.1.5</version>-->
+        <!--        </dependency>-->
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-configuration-processor</artifactId>-->
-<!--            <optional>true</optional>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-configuration-processor</artifactId>-->
+        <!--            <optional>true</optional>-->
+        <!--        </dependency>-->
     </dependencies>
 
 

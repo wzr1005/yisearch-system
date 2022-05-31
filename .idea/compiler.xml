@@ -14,9 +14,8 @@
         <module name="friends" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8">
       <module name="common" target="8" />
-      <module name="dataprocess" target="11" />
       <module name="friends" target="8" />
       <module name="login" target="8" />
       <module name="search" target="8" />
@@ -27,7 +26,6 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common" options="-parameters" />
-      <module name="dataprocess" options="-parameters" />
       <module name="friends" options="-parameters" />
       <module name="login" options="-parameters" />
       <module name="search" options="-parameters" />
