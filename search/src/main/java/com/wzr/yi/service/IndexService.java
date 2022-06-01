@@ -20,4 +20,6 @@ public interface IndexService {
     public boolean redis();
 
     public boolean BulkInsertMysql(List<IndexProperty> objList);
+
+    public String Testmybatis();
 }

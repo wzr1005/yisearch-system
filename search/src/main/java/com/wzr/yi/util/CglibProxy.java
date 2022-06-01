@@ -22,13 +22,13 @@ public class CglibProxy implements MethodInterceptor {
 
     }
 
-    public Object createProxyedObj(Class<?> clazz){
-        //对外表现上看CreatProxyedObj，它只需要一个类型clazz就可以产生一个代理对象
-        Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(clazz);
-        enhancer.setCallback(this);
-        return enhancer.create();
-    }
+//    public <T> Object createProxyedObj(T t){
+//        //对外表现上看CreatProxyedObj，它只需要一个类型clazz就可以产生一个代理对象
+//        Enhancer enhancer = new Enhancer();
+//        enhancer.setSuperclass(t.getClass());
+//        enhancer.setCallback();
+//        return enhancer.create();
+//    }
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         //预处理逻辑
         long beginTime = System.currentTimeMillis();

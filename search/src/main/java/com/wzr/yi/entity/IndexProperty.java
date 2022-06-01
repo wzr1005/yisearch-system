@@ -1,12 +1,15 @@
 package com.wzr.yi.entity;
 
 import com.alibaba.fastjson.JSONObject;
+import com.wzr.yi.util.GetOrDefault;
 import lombok.Data;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @autor zhenrenwu
@@ -27,19 +30,19 @@ public class IndexProperty implements Serializable {
 
     private String serialName;
 
-    private String starring;
+    private List<String> starring;
 
-    private String director;
+    private List<String> director;
 
-    private String geneType;
+    private List<String> geneType;
 
-    private String alias;
+    private List<String> alias;
 
-    private String resourceWap;
+    private List<String> resourceWap;
 
-    private String resourcePc;
+    private List<String> resourcePc;
 
-    private int rank;
+    private int resourceRank;
 
     private int year;
 
@@ -49,45 +52,53 @@ public class IndexProperty implements Serializable {
 
     private String status;
 
-    private String describe;
+    private String describeInfo;
 
 
     @Override
     public String toString() {
-        return "{" +
+        return "IndexProperty{" +
                 "id='" + id + '\'' +
                 ", eid='" + eid + '\'' +
                 ", name='" + name + '\'' +
                 ", serialName='" + serialName + '\'' +
-                ", starring='" + starring + '\'' +
-                ", director='" + director + '\'' +
-                ", geneType='" + geneType + '\'' +
-                ", alias='" + alias + '\'' +
-                ", resourceWap='" + resourceWap + '\'' +
-                ", resourcePc='" + resourcePc + '\'' +
-                ", rank=" + rank +
+                ", starring=" + starring +
+                ", director=" + director +
+                ", geneType=" + geneType +
+                ", alias=" + alias +
+                ", resourceWap=" + resourceWap +
+                ", resourcePc=" + resourcePc +
+                ", resourceRank=" + resourceRank +
                 ", year=" + year +
                 ", hotCount=" + hotCount +
                 ", feature='" + feature + '\'' +
                 ", status='" + status + '\'' +
-                ", describe='" + describe + '\'' +
+                ", describeInfo='" + describeInfo + '\'' +
                 '}';
     }
 
+
     public IndexProperty(JSONObject obj) {
-        this.eid = (String) obj.get("eid");
+        this.eid = (String) obj.get("id");
         this.name = (String) obj.get("name");
         this.serialName = (String) obj.get("serialName");
-        this.starring = (String) obj.get("starring");
-        this.director = (String) obj.get("director");
-        this.geneType = (String) obj.get("geneType");
-        this.alias = (String) obj.get("alias");
-        this.resourceWap = (String) obj.get("resourceWap");
-        this.resourcePc = (String) obj.get("resourcePc");
-        this.rank = (int) obj.get("rank");
-        this.year = (int) obj.get("year");
-        this.hotCount = (int) obj.get("hotCount");
+        this.starring = (List<String>)obj.get("starring");
+        this.director = (List<String>) obj.get("director");
+        Object genreList = obj.get("genreList");
+        List<JSONObject> genreListobj = (List<JSONObject>)genreList;
+        List<String> genreStrList = new ArrayList<>();
+        genreListobj.forEach(g->{
+            genreStrList.add((String) g.get("type"));
+        });
+        this.geneType = genreStrList;
+        this.alias = (List<String>) obj.get("alias");
+        this.resourceWap = (List<String>) obj.get("resourceWap");
+        this.resourcePc = (List<String>) obj.get("resourcePc");
+        this.resourceRank = GetOrDefault.getInteger(obj, "rank");
+        this.year = GetOrDefault.getInteger(obj, "yearOrigin");
+        this.hotCount = GetOrDefault.getInteger(obj, "hotCount");
+        this.feature = "";
         this.status = (String) obj.get("status");
-        this.describe = (String) obj.get("describe");
+        this.describeInfo = GetOrDefault.getString(obj, "describe");
     }
 }

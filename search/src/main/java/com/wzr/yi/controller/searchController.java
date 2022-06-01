@@ -2,17 +2,17 @@ package com.wzr.yi.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.wzr.yi.Mapper.IndexPropertyMapper;
+import com.wzr.yi.config.MysqlConfig;
 import com.wzr.yi.entity.IndexProperty;
 import com.wzr.yi.util.CglibProxy;
 import com.wzr.yi.util.DynamicProxyInvocation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.cglib.proxy.Enhancer;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.*;
 import com.wzr.yi.service.IndexService;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +23,13 @@ import java.util.List;
  */
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("/search")
 public class searchController {
 
     private final IndexService indexService;
 
+    private final IndexPropertyMapper indexPropertyMapper;
+    private final MysqlConfig mysqlConfig;
     @GetMapping("/search")
     public String test(){
         return "search";
@@ -36,14 +39,19 @@ public class searchController {
 
     @GetMapping("/testdb")
     public String testDb(){
-        return null;
+        return indexService.Testmybatis();
     }
 
     @PostMapping("/insert")
     public void BulkInsertMysql(@RequestParam String FilePath) {
-        DynamicProxyInvocation dyBulkInsertMysql = new DynamicProxyInvocation(
-                indexService);
-        IndexService cgIndexService = (IndexService) new CglibProxy(indexService).createProxyedObj(indexService.getClass());
+//        DynamicProxyInvocation dyBulkInsertMysql = new DynamicProxyInvocation(
+//                indexService);
+//        CglibProxy cglibProxy = new CglibProxy(indexService);
+//        Enhancer enhancer = new Enhancer();
+//        enhancer.setSuperclass(indexService.getClass());
+//        enhancer.setCallback(cglibProxy);
+//        IndexService cgIndexService = (IndexService) enhancer.create();
+//        JdbcTemplate jdbcTemplate = mysqlConfig.getJdbcTemplate();
 
         FileInputStream fileInputStream = null;
         try {
@@ -59,11 +67,13 @@ public class searchController {
             try {
                 if (!((line = bufferedReader.readLine()) != null)) break;
                 JSONObject obj = (JSONObject) JSON.parse(line);
-                indexPropertyList.add(new IndexProperty(obj));
+                IndexProperty indexProperty = new IndexProperty(obj);
+                indexPropertyList.add(indexProperty);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            break;
         }
-        cgIndexService.BulkInsertMysql(indexPropertyList);
+        indexService.BulkInsertMysql(indexPropertyList);
     }
 }

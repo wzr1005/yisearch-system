@@ -8,9 +8,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="search" />
-        <module name="system" />
         <module name="common" />
         <module name="login" />
+        <module name="yi-system" />
         <module name="friends" />
       </profile>
     </annotationProcessing>
@@ -19,7 +19,8 @@
       <module name="friends" target="8" />
       <module name="login" target="8" />
       <module name="search" target="8" />
-      <module name="system" target="8" />
+      <module name="yi" target="1.8" />
+      <module name="yi-system" target="8" />
       <module name="yisearch-system" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -29,7 +30,7 @@
       <module name="friends" options="-parameters" />
       <module name="login" options="-parameters" />
       <module name="search" options="-parameters" />
-      <module name="system" options="-parameters" />
+      <module name="yi-system" options="-parameters" />
     </option>
   </component>
 </project>

@@ -6,8 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/friends/friends.iml" filepath="$PROJECT_DIR$/friends/friends.iml" />
       <module fileurl="file://$PROJECT_DIR$/login/login.iml" filepath="$PROJECT_DIR$/login/login.iml" />
       <module fileurl="file://$PROJECT_DIR$/search/search.iml" filepath="$PROJECT_DIR$/search/search.iml" />
-      <module fileurl="file://$PROJECT_DIR$/system/system.iml" filepath="$PROJECT_DIR$/system/system.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/yisearch-system.iml" filepath="$PROJECT_DIR$/.idea/yisearch-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yi.iml" filepath="$PROJECT_DIR$/yi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/yi-system/yi-system.iml" filepath="$PROJECT_DIR$/yi-system/yi-system.iml" />
     </modules>
   </component>
 </project>
