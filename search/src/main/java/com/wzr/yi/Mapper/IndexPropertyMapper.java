@@ -28,5 +28,5 @@ public interface IndexPropertyMapper {
             "</script>"
 
     })
-    void insertBatchRecord(@Param("list")List<IndexPropertyDto> list);
+    boolean insertBatchRecord(@Param("list")List<IndexPropertyDto> list);
 }

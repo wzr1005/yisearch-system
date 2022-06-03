@@ -7,7 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.List;
 
-import static com.wzr.yi.service.impl.indexServiceImpl.listToStringJoin;
+import static com.wzr.yi.util.MyStringUtils.getValueOrDefault;
+import static com.wzr.yi.util.MyStringUtils.listToStringJoin;
+
 
 /**
  * @autor zhenrenwu
@@ -50,20 +52,21 @@ public class IndexPropertyDto {
     private String describeInfo;
 
     public IndexPropertyDto(IndexProperty indexProperty) {
-        this.eid = indexProperty.getEid();
-        this.name = indexProperty.getName();
-        this.serialName = indexProperty.getSerialName();
-        this.starring = listToStringJoin(indexProperty.getStarring());
-        this.director = listToStringJoin(indexProperty.getStarring());
-        this.geneType = listToStringJoin(indexProperty.getGeneType());
-        this.alias = listToStringJoin(indexProperty.getAlias());
-        this.resourceWap = listToStringJoin(indexProperty.getResourceWap());
-        this.resourcePc = listToStringJoin(indexProperty.getResourcePc());
-        this.resourceRank = String.valueOf(indexProperty.getResourceRank());
+        this.eid = getValueOrDefault(indexProperty.getEid());
+        this.name = getValueOrDefault(indexProperty.getName());
+        String serialName = getValueOrDefault(indexProperty.getSerialName());
+        this.starring = getValueOrDefault(indexProperty.getStarring());
+        this.director =  getValueOrDefault(indexProperty.getStarring());
+        this.geneType = getValueOrDefault(indexProperty.getGeneType());
+        this.alias = getValueOrDefault(indexProperty.getAlias());
+        this.resourceWap = getValueOrDefault(indexProperty.getResourceWap());
+        this.resourcePc = getValueOrDefault(indexProperty.getResourcePc());
+        this.resourceRank = getValueOrDefault(indexProperty.getResourceRank());
         this.year = String.valueOf(indexProperty.getYear());
-        this.hotCount = String.valueOf(indexProperty.getHotCount());
-        this.feature = indexProperty.getFeature();
-        this.status = indexProperty.getStatus();
-        this.describeInfo = indexProperty.getDescribeInfo();
+        this.hotCount = getValueOrDefault(indexProperty.getHotCount());
+        this.feature = getValueOrDefault(indexProperty.getFeature());
+        this.status = getValueOrDefault(indexProperty.getStatus());
+        this.describeInfo = getValueOrDefault(indexProperty.getDescribeInfo());
     }
+
 }

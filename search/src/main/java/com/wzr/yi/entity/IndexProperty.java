@@ -1,6 +1,7 @@
 package com.wzr.yi.entity;
 
 import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.core.JsonFactory;
 import com.wzr.yi.util.GetOrDefault;
 import lombok.Data;
 

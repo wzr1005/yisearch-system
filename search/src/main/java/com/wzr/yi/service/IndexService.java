@@ -2,9 +2,11 @@ package com.wzr.yi.service;
 
 import com.wzr.yi.bean.EsRequetBody;
 import com.wzr.yi.entity.IndexProperty;
+import com.wzr.yi.entity.IndexPropertyDto;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -19,7 +21,8 @@ public interface IndexService {
 
     public boolean redis();
 
-    public boolean BulkInsertMysql(List<IndexProperty> objList);
+    public boolean BulkInsertMysql(List<IndexPropertyDto> objList);
 
     public String Testmybatis();
+    public List<Map<String, Object>> testDruid();
 }

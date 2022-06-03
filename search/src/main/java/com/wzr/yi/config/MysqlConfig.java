@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,8 @@ import javax.sql.DataSource;
  * 自动配置
  */
 @Slf4j
-@Component
+@Component()
+//@Scope("prototype")//作用域  默认为singleton，即为单例
 public class MysqlConfig {
     @Value("${spring.datasource.url}")
     private String url;
@@ -32,13 +34,7 @@ public class MysqlConfig {
 
     private JdbcTemplate jdbcTemplate;
 
-    public JdbcTemplate JdbcTemplate(DataSource dataSource){
-        return new JdbcTemplate(dataSource);
-    }
-
-    //配置DataSource数据源
-    @Bean
-    public DataSource dataSource(){
+    public JdbcTemplate JdbcTemplate(){
         log.info("初始化bean dataSource.....");
         DruidDataSource dataSource = new DruidDataSource();
         //啥子数据源的名称和密码等等
@@ -50,8 +46,25 @@ public class MysqlConfig {
         //设置连接的驱动
         dataSource.setDriverClassName(driverClassName);
         log.info("初始化bean dataSource. finished....");
-        return dataSource;
+        return new JdbcTemplate(dataSource);
     }
+
+    //配置DataSource数据源
+//    @Bean
+//    public DataSource dataSource(){
+//        log.info("初始化bean dataSource.....");
+//        DruidDataSource dataSource = new DruidDataSource();
+//        //啥子数据源的名称和密码等等
+//        dataSource.setUsername(username);
+//        dataSource.setPassword(password);
+//        //设置连接的url
+//        log.info("初始化bean dataSource. url....");
+//        dataSource.setUrl(url);
+//        //设置连接的驱动
+//        dataSource.setDriverClassName(driverClassName);
+//        log.info("初始化bean dataSource. finished....");
+//        return dataSource;
+//    }
 
 //    public JdbcTemplate getJdbcTemplate(){
 //        return new JdbcTemplate(dataSource());

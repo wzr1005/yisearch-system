@@ -3,9 +3,12 @@ package com.wzr.yi.util;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.wzr.yi.entity.IndexProperty;
+import com.wzr.yi.entity.IndexPropertyDto;
 import lombok.Data;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.lang.reflect.Type;
@@ -19,15 +22,21 @@ import java.util.concurrent.*;
  */
 @Data
 @Slf4j
+@Component
 public class LoadTextByLineMulti {
+
+    @Value("${file.testFile}")
     private String path;
 
     public LoadTextByLineMulti(String path) {
         this.path = path;
     }
 
+    public LoadTextByLineMulti() {
+    }
+
     /**
-     * 泛型方法例子
+     * 泛型方法例子, 单线程读写
      * @param T
      * @param <T>
      * @return
@@ -58,9 +67,13 @@ public class LoadTextByLineMulti {
         return list;
     }
 
-
+    /**
+     * 多线程读写
+     * @param T
+     * @return
+     */
     @SneakyThrows
-    public List<IndexProperty> loadLineDataMulti(Class T){ // 将类作为参数传入
+    public List<IndexPropertyDto> loadLineDataMulti(Class T){ // 将类作为参数传入
         FileInputStream fileInputStream = null;
         try {
             fileInputStream = new FileInputStream(path);
@@ -90,7 +103,7 @@ public class LoadTextByLineMulti {
                     }
                 });
         String line = null;
-        List<IndexProperty> list = new ArrayList<>();
+        List<IndexPropertyDto> list = new ArrayList<>();
         while (true){
             if (!((line = bufferedReader.readLine()) != null)) break;
             executorService.submit(new loadRunnableThread(line, list));
@@ -102,18 +115,20 @@ public class LoadTextByLineMulti {
     public class loadRunnableThread implements Runnable{
 
         private String line;
-        private List<IndexProperty> list;
+        private List<IndexPropertyDto> list;
 
         @SneakyThrows
         @Override
         public void run() {
+            //
             JSONObject obj = (JSONObject) JSON.parse(line);
             IndexProperty indexProperty = (IndexProperty) new IndexProperty(obj);
-            list.add(indexProperty);
+            IndexPropertyDto indexPropertyDto = new IndexPropertyDto(indexProperty);
+            list.add(indexPropertyDto);
             Thread.sleep(1);
         }
-//78612 114694ms 多线程8s
-        public loadRunnableThread(String line, List<IndexProperty> list) {
+//78612 114694ms 多线程8000ms
+        public loadRunnableThread(String line, List<IndexPropertyDto> list) {
             this.line = line;
             this.list = list;
         }
@@ -122,7 +137,7 @@ public class LoadTextByLineMulti {
         long beginTime = System.currentTimeMillis();
         LoadTextByLineMulti loadTextByLineMulti = new LoadTextByLineMulti("/Users/zhenrenwu/tx/long_video_base_data/entity_diff/tupu_schema/tupu_all_entity_2022-05-12.txt");
 //        List<IndexProperty> l = loadTextByLineMulti.loadLineDataSingle(IndexProperty.class);
-        List<IndexProperty> l = loadTextByLineMulti.loadLineDataMulti(IndexProperty.class);
+        List<IndexPropertyDto> l = loadTextByLineMulti.loadLineDataMulti(IndexPropertyDto.class);
         System.out.println(l.size());
         long detTime = System.currentTimeMillis()-beginTime;
         log.info(String.format("finished, cost %d", detTime));
