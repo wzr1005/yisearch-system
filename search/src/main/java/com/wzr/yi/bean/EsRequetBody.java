@@ -1,6 +1,9 @@
 package com.wzr.yi.bean;
 
 import lombok.Data;
+import org.elasticsearch.index.query.QueryBuilder;
+
+import java.util.List;
 
 /**
  * @autor zhenrenwu
@@ -12,7 +15,8 @@ public class EsRequetBody {
     private String type;
     private String id;
     private String mapping;
-    private String fields;
     private String excludes;
     private String json;
+    private String query;
+    private String[] fields;
 }

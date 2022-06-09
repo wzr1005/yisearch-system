@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
@@ -43,6 +42,7 @@ public class LoadTextByLineMulti {
      */
     @SneakyThrows
     public <T> List<T> loadLineDataSingle(Class T){
+        long beginTime = System.currentTimeMillis();
         FileInputStream fileInputStream = null;
         try {
             fileInputStream = new FileInputStream(path);
@@ -64,6 +64,9 @@ public class LoadTextByLineMulti {
                 e.printStackTrace();
             }
         }
+        long detTime = System.currentTimeMillis() - beginTime;
+        log.info(String.format("读取 %d条数据，实际%d条, cost %d", list.size(), 78612, detTime));
+
         return list;
     }
 
@@ -74,6 +77,8 @@ public class LoadTextByLineMulti {
      */
     @SneakyThrows
     public List<IndexPropertyDto> loadLineDataMulti(Class T){ // 将类作为参数传入
+        log.info(String.format("读取 %s", path));
+        long beginTime = System.currentTimeMillis();
         FileInputStream fileInputStream = null;
         try {
             fileInputStream = new FileInputStream(path);
@@ -90,8 +95,8 @@ public class LoadTextByLineMulti {
             }
         };
 
-        ExecutorService executorService = new ThreadPoolExecutor(1000, 10000, 1000L, TimeUnit.MILLISECONDS,
-                new ArrayBlockingQueue<>(10000),
+        ExecutorService executorService = new ThreadPoolExecutor(100, 1000, 1000L, TimeUnit.MILLISECONDS,
+                new LinkedBlockingQueue<>(1000),
                 threadFactory,
                 (r, executor) -> {
                     if(!executor.isShutdown()){
@@ -108,7 +113,10 @@ public class LoadTextByLineMulti {
             if (!((line = bufferedReader.readLine()) != null)) break;
             executorService.submit(new loadRunnableThread(line, list));
         }
-        executorService.shutdown();
+        long detTime = System.currentTimeMillis()-beginTime;
+        if(ThreadPoolUtils.isCompleted(executorService)){
+            log.info(String.format("读取 %d条数据，实际%d条, cost %d", list.size(), 78612, detTime));
+        }
         return list;
     }
 
@@ -132,6 +140,33 @@ public class LoadTextByLineMulti {
             this.line = line;
             this.list = list;
         }
+    }
+    public List<String> loadLineStringList(String path){
+        log.info(String.format("读取 %s", path));
+        long beginTime = System.currentTimeMillis();
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(path);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+
+        String line = null;
+        List<String> list = new ArrayList<>();
+        while (true){
+            try {
+                if (!((line = bufferedReader.readLine()) != null)) break;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String finalLine = line;
+            list.add(finalLine);
+        }
+        long detTime = System.currentTimeMillis()-beginTime;
+        log.info(String.format("读取 %d条数据，实际%d条, cost %d", list.size(), 78612, detTime));
+        return list;
     }
     public static void main(String[] args) {
         long beginTime = System.currentTimeMillis();

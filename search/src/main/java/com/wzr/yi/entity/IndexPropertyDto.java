@@ -1,5 +1,6 @@
 package com.wzr.yi.entity;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 
 import javax.persistence.GeneratedValue;
@@ -7,8 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.List;
 
-import static com.wzr.yi.util.MyStringUtils.getValueOrDefault;
-import static com.wzr.yi.util.MyStringUtils.listToStringJoin;
+import static com.wzr.yi.util.MyStringUtils.*;
 
 
 /**
@@ -54,13 +54,16 @@ public class IndexPropertyDto {
     public IndexPropertyDto(IndexProperty indexProperty) {
         this.eid = getValueOrDefault(indexProperty.getEid());
         this.name = getValueOrDefault(indexProperty.getName());
-        String serialName = getValueOrDefault(indexProperty.getSerialName());
+        this.serialName = getValueOrDefault(indexProperty.getSerialName());
         this.starring = getValueOrDefault(indexProperty.getStarring());
         this.director =  getValueOrDefault(indexProperty.getStarring());
         this.geneType = getValueOrDefault(indexProperty.getGeneType());
         this.alias = getValueOrDefault(indexProperty.getAlias());
-        this.resourceWap = getValueOrDefault(indexProperty.getResourceWap());
-        this.resourcePc = getValueOrDefault(indexProperty.getResourcePc());
+        List<?> resourceWapList = indexProperty.getResourceWap();
+//        System.out.println(resourceWapList.get(0));
+        this.resourceWap = geyKeyWordFromList(resourceWapList, "source");
+
+        this.resourcePc = geyKeyWordFromList(indexProperty.getResourcePc(), "source");
         this.resourceRank = getValueOrDefault(indexProperty.getResourceRank());
         this.year = String.valueOf(indexProperty.getYear());
         this.hotCount = getValueOrDefault(indexProperty.getHotCount());
@@ -69,4 +72,25 @@ public class IndexPropertyDto {
         this.describeInfo = getValueOrDefault(indexProperty.getDescribeInfo());
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+                "id: '" + id + '\'' +
+                ", eid: '" + eid + '\'' +
+                ", name: '" + name + '\'' +
+                ", serialName: '" + serialName + '\'' +
+                ", starring: '" + starring + '\'' +
+                ", director: '" + director + '\'' +
+                ", geneType: '" + geneType + '\'' +
+                ", alias: '" + alias + '\'' +
+                ", resourceWap: '" + resourceWap + '\'' +
+                ", resourcePc: '" + resourcePc + '\'' +
+                ", resourceRank: '" + resourceRank + '\'' +
+                ", year: '" + year + '\'' +
+                ", hotCount: '" + hotCount + '\'' +
+                ", feature: '" + feature + '\'' +
+                ", status: '" + status + '\'' +
+                ", describeInfo: '" + describeInfo + '\'' +
+                '}';
+    }
 }

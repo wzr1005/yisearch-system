@@ -4,6 +4,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.wzr.yi.Factory.ThreadFactoryName;
 import com.wzr.yi.Mapper.IndexPropertyMapper;
 import com.wzr.yi.bean.EsRequetBody;
 import com.wzr.yi.config.DruidPool;
@@ -13,14 +14,12 @@ import com.wzr.yi.entity.IndexProperty;
 import com.wzr.yi.entity.IndexPropertyDto;
 import com.wzr.yi.exception.BadRequestException;
 import com.wzr.yi.service.IndexService;
-import com.wzr.yi.util.ElasticSearchUtil;
-import com.wzr.yi.util.MyStringUtils;
-import com.wzr.yi.util.MysqlUtils;
-import com.wzr.yi.util.RedisUtils;
+import com.wzr.yi.util.*;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.ibatis.executor.ExecutorException;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.springframework.http.HttpStatus;
@@ -81,12 +80,7 @@ public class indexServiceImpl implements IndexService {
     @Override
     public boolean BulkInsertMysql(List<IndexPropertyDto> objList) {
         long beginTime = System.currentTimeMillis();
-        ThreadFactory threadFactory = new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                return new Thread(r);
-            }
-        };
+        ThreadFactoryName threadFactory = new ThreadFactoryName();
         RejectedExecutionHandler rejectedExecutionHandler = new RejectedExecutionHandler() {
             @SneakyThrows
             @Override
@@ -105,24 +99,6 @@ public class indexServiceImpl implements IndexService {
         AtomicInteger index = new AtomicInteger();
         log.info("开始多线程写入到数据库。。。");
         multiInsert(objList);
-        CountDownLatch countDownLatch = new CountDownLatch(objList.size());
-        int step = 100;
-        int listIndex = 0;
-//        while (index.get() < objList.size()){
-//            // 多线程读取队列中数据，一次读满1000条之后，写入到mysql。
-//            System.out.println();
-//            indexPropertyMapper.insertBatchRecord(objList.subList(index.get(), index.getAndIncrement() + 1));
-////            executorService.submit(()->{
-////                //单线程内
-////                while (index.get() < objList.size()) {  // index为拿到的令牌
-////                    indexPropertyMapper.insertBatchRecord(objList.subList(index.get(), index.get() + 1));
-////                }
-////            });
-////            break;
-//        }
-        long detTime = System.currentTimeMillis()-beginTime;
-        log.info(String.format("finished, cost %d", detTime));
-        executorService.shutdown();
         return true;
     }
 
@@ -131,12 +107,7 @@ public class indexServiceImpl implements IndexService {
         //一次插入2000条，多线程写入，引入消息队列,限制数据库10000个连接
         //同事又可以保证及时流量突然增大也不会占用服务器过多的资源。
 
-        ThreadFactory threadFactory = new ThreadFactory() {
-            @Override
-            public Thread newThread(Runnable r) {
-                return new Thread(r);
-            }
-        };
+        ThreadFactoryName threadFactory = new ThreadFactoryName();
         RejectedExecutionHandler rejectedExecutionHandler = new RejectedExecutionHandler() {
             @SneakyThrows
             @Override
@@ -146,52 +117,56 @@ public class indexServiceImpl implements IndexService {
                 }
             }
         };
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(200, 200,
+        int core = 20;
+        int maxThread = 1000;
+        int queueNum = 400;
+        int step = 2000;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(core, maxThread,
                 1000L, TimeUnit.MILLISECONDS,
-                new ArrayBlockingQueue<>(100),
+                new ArrayBlockingQueue<>(queueNum),
                 threadFactory,
                 rejectedExecutionHandler
         );
 
-        AtomicInteger index = new AtomicInteger();
         log.info("开始多线程写入到数据库。。。");
-        Long druidDataSourceBackup = druidPool.druidDataSource.getID();
-        CountDownLatch countDownLatch = new CountDownLatch(objList.size());
-        int step = 10;
         int listIndex = 0;
+        AtomicInteger insertNum = new AtomicInteger(0);
+//        int insertNum = 0;
         while(listIndex < objList.size()){
             int finalListIndex = listIndex;
-            threadPoolExecutor.submit(new Runnable() {
-                @SneakyThrows
-                @Override
-                public void run() {
-                    //内部类不允许访问局部变量
-                    String sqlBatch = generateSqlBatch(objList.subList(finalListIndex,finalListIndex+step));
-                    druidPool.executeSqlUpdate(sqlBatch);
-                }
-            });
-            if(druidDataSourceBackup != druidPool.druidDataSource.getID()){
-                log.error("新建了其他连接池");
-            }
-            System.out.println(threadPoolExecutor.getPoolSize() + "Threads running....");
-            if(druidPool.druidDataSource.getConnectCount() > 200){
-                System.out.println("ActiveCount: " +
-                        druidPool.druidDataSource.getActiveCount() +
-                        "\tConnectCount" + druidPool.druidDataSource.getConnectCount());
-
+            try{
+//                log.info(String.format("任务提交", finalListIndex));
+                Future future = threadPoolExecutor.submit(new Runnable() {
+                    @Override
+                    public void run() {
+                        //内部类不允许访问局部变量
+                        String sqlBatch = generateSqlBatch(objList.subList(finalListIndex,finalListIndex+step));
+                        druidPool.executeSqlUpdate(sqlBatch);
+                        insertNum.addAndGet(step);
+                    }
+                });
+            }catch (ExecutorException executorException){
+                log.error(String.format("提交任务失败 %d", finalListIndex));
             }
             listIndex += step;
         }
         //list剩余元素插入
-        if(listIndex >= objList.size()){
+        if(listIndex != objList.size()){
+            log.info("list剩余元素插入");
             String sqlBatch = generateSqlBatch(objList.subList(listIndex-step,objList.size()));
-            JdbcTemplate jdbcTemplate = new JdbcTemplate();
-            jdbcTemplate.execute(sqlBatch);
+            druidPool.executeSqlUpdate(sqlBatch);
+            insertNum.addAndGet(objList.size() - listIndex + step);
         }
-        long detTime = System.currentTimeMillis()-beginTime;
-        log.info(String.format("finished, cost %d", detTime));
-        threadPoolExecutor.shutdown();
+
+        if(ThreadPoolUtils.isCompleted(threadPoolExecutor)){
+            long detTime = System.currentTimeMillis()-beginTime;
+            log.info(String.format("%s finished, cost %d",Thread.currentThread().getStackTrace()[Thread.currentThread().getStackTrace().length-1], detTime));
+        }
+        if(threadPoolExecutor.isShutdown()){
+            System.out.println(insertNum.get());
+        }
     }
+
 
     @Override
     public String Testmybatis() {
@@ -207,51 +182,4 @@ public class indexServiceImpl implements IndexService {
         return list;
     }
 
-
-    public static int i = 0;
-    public static ExecutorService executorService1;
-
-//    public static void main(String[] args) {
-//        long beginTime = System.currentTimeMillis();
-//        ThreadFactory r = new ThreadFactory() {
-//            @Override
-//            public Thread newThread(Runnable r) {
-//                return new Thread(r);
-//            }
-//        };
-//        RejectedExecutionHandler handler = new RejectedExecutionHandler() {
-//            @SneakyThrows
-//            @Override
-//            public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-//                if(!executor.isShutdown()){
-//                    // put会一直尝试，直到capacity空闲。
-//                    executor.getQueue().put(r);
-//                }
-//            }
-//        };
-//        executorService1 = new ThreadPoolExecutor(10, 100, 1000L, TimeUnit.MILLISECONDS,
-//                new ArrayBlockingQueue<>(100),
-//                r,
-//                handler
-//                );
-//        // 多线程每获取5个元素 打印
-//        while (i < 10000){
-//            executorService1.submit(()->{
-//                List<Integer> list = new ArrayList<>();
-//                while (i < 10000){
-//                    list.add(i);
-//                    i++;
-//                    if(i<10000&&list.size()==15 || i == 9999){
-//                        if(list.size()!=15){
-//                            System.out.println(list.toString() + "\t" + Thread.currentThread().getName() + '\t' + list.size());
-//                        }
-//                        list = null;
-//                    }
-//                }
-//            });
-//        }
-//        long detTime = System.currentTimeMillis()-beginTime;
-//        log.info(String.format("finished, cost %d", detTime));
-//
-//    }
 }

@@ -119,6 +119,9 @@ public class DruidPool {
 
     public DruidPool(DruidDataSource druidDataSource){
         log.info("Spring Druid Pool 初始化");
+        if(druidDataSource == null){
+            log.error("datasource not set");
+        }
         this.druidDataSource = druidDataSource;
     }
 

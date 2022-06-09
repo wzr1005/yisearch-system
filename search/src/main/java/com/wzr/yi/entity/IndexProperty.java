@@ -102,4 +102,29 @@ public class IndexProperty implements Serializable {
         this.status = (String) obj.get("status");
         this.describeInfo = GetOrDefault.getString(obj, "describe");
     }
+
+    public IndexProperty(String s) {
+        JSONObject obj = JSONObject.parseObject(s);
+        this.eid = (String) obj.get("id");
+        this.name = (String) obj.get("name");
+        this.serialName = (String) obj.get("serialName");
+        this.starring = (List<String>)obj.get("starring");
+        this.director = (List<String>) obj.get("director");
+        Object genreList = obj.get("genreList");
+        List<JSONObject> genreListobj = (List<JSONObject>)genreList;
+        List<String> genreStrList = new ArrayList<>();
+        genreListobj.forEach(g->{
+            genreStrList.add((String) g.get("type"));
+        });
+        this.geneType = genreStrList;
+        this.alias = (List<String>) obj.get("alias");
+        this.resourceWap = (List<String>) obj.get("resourceWapList");
+        this.resourcePc = (List<String>) obj.get("resourcePcList");
+        this.resourceRank = GetOrDefault.getInteger(obj, "rank");
+        this.year = GetOrDefault.getInteger(obj, "yearOrigin");
+        this.hotCount = GetOrDefault.getInteger(obj, "hotCount");
+        this.feature = "";
+        this.status = (String) obj.get("status");
+        this.describeInfo = obj.getJSONObject("descriptionDict").getString("origin");
+    }
 }

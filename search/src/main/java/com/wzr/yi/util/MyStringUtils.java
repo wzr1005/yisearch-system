@@ -1,6 +1,9 @@
 package com.wzr.yi.util;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wzr.yi.entity.IndexPropertyDto;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -31,11 +34,35 @@ public class MyStringUtils {
         return obj.toString();
     }
 
+    public static String geyKeyWordFromList(List<?> list, String field){
+        StringBuffer stringBuffer = new StringBuffer();
+        if(list == null) return "";
+        for(Object l : list){
+            JSONObject jsonObject = (JSONObject) l;
+            String value = jsonObject.getString(field);
+            stringBuffer.append(value).append(";");
+        }
+//        list.forEach(l->{
+//
+//        });
+        stringBuffer.deleteCharAt(stringBuffer.length()-1);
+        return stringBuffer.toString();
+    }
     public static String listToStringJoin(List<?> l){
         if(l.size() == 0) return "";
         return StringUtils.join(l.toArray(), ";");
     }
 
+    public static String ObjectToString(Object object){
+        ObjectMapper mapper = new ObjectMapper();
+        String valueJson = "";
+        try {
+            valueJson = mapper.writeValueAsString(object);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return valueJson;
+    }
     public static String generateSqlBatch(List<IndexPropertyDto> indexPropertyDtoList){
         StringBuffer stringBuffer = new StringBuffer("INSERT INTO index_property (");
 
@@ -46,7 +73,6 @@ public class MyStringUtils {
         Field[] fields = indexPropertyDtoList.get(0).getClass().getDeclaredFields();
         for(Field field : fields){
             String filedName = field.getName();
-            if(filedName == "id") continue;
             stringBuffer.append(filedName).append(", ");
         }
         //删除多余逗号

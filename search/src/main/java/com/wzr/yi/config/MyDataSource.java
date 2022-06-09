@@ -45,14 +45,10 @@ public class MyDataSource {
 
 
     //配置DataSource数据源
-    @SneakyThrows
     @Bean(name = "druidDataSource")
     @ConfigurationProperties(prefix = "spring.datasource")
     public DruidDataSource druidDataSource(){
         //加载配置文件
-        log.info("初始化bean druidDataSource.....");
-
-
         log.info("初始化bean druidDataSource. finished....");
         return new DruidDataSource();
     }
