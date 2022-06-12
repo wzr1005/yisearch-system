@@ -56,10 +56,10 @@ public class RpcServerWorker implements  Runnable{
 
                 // 1. 将returnObject编码成bytes[]即变成了返回编码 [codec]
                 System.out.println("将服务返回的结果编码成字节流，byteArrayOutputStream");
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                ObjectOutputStream objectOutputStream1 = new ObjectOutputStream(byteArrayOutputStream);
-                objectOutputStream1.writeObject(rpcResponseBody);
-                byte[] bytes = byteArrayOutputStream.toByteArray();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(rpcResponseBody);
+                byte[] bytes = baos.toByteArray();
 
                 // 2. 将返回编码作为body，加上header，生成RpcResponse协议 [protocol层]
                 System.out.println("将编码注入RpcResponse，Java支持的对象");
@@ -70,8 +70,8 @@ public class RpcServerWorker implements  Runnable{
 
                 // 3. 发送[transfer层]
                 System.out.println("发送到client的上层，等待读取");
-                objectOutputStream1.writeObject(rpcResponse);
-                objectOutputStream1.flush();
+                objectOutputStream.writeObject(rpcResponse);
+                objectOutputStream.flush();
 
             }
         } catch (IOException | ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
