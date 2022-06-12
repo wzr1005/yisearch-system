@@ -1,0 +1,16 @@
+syntax = "proto3"; //版本声明
+
+package com.wzr.yi.pythonService;
+
+service EditDistService{
+  rpc EditDist(EditDistRequest) returns (EditDistResponse){}
+}
+
+message EditDistRequest{
+  string query = 1;
+  string target = 2;
+}
+
+message EditDistResponse{
+  float result = 1;
+}
