@@ -1,6 +1,6 @@
 syntax = "proto3"; //版本声明
 
-package com.wzr.yi.pythonService;
+package pythonService;
 
 service EditDistService{
   rpc EditDist(EditDistRequest) returns (EditDistResponse){}
