@@ -10,6 +10,7 @@ import com.wzr.yi.exception.BadRequestException;
 import com.wzr.yi.util.Dto.EsPage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.elasticsearch.action.ActionFuture;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest;
@@ -28,6 +29,7 @@ import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
 import org.elasticsearch.action.update.UpdateRequest;
+import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.text.Text;
 import org.elasticsearch.common.unit.ByteSizeUnit;
@@ -76,26 +78,37 @@ public class ElasticSearchUtil {
     public List<Map<String, Object>> queryEs(EsRequetBody requetBody){
         // es Java客户端查询案例
         //搜索请求对象
-        SearchRequest searchRequest = new SearchRequest("entity_film529");
-        searchRequest.types("entity");
+
+        SearchRequest searchRequest = new SearchRequest(requetBody.getIndexName());
+        searchRequest.types(requetBody.getType());
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
         //搜索方式
         //MultiMatchQuery
-        searchSourceBuilder.query(QueryBuilders.multiMatchQuery(requetBody.getQuery(), requetBody.getFields()[0], requetBody.getFields()[1]));
-        QueryBuilder queryBuilder = new MultiMatchQueryBuilder(requetBody.getQuery());
-        SearchResponse searchResponse = transportClient
-                .prepareSearch(requetBody.getIndexName())
-                .setQuery(queryBuilder)  //设置查询方式
-                .get();
+
+        QueryBuilder queryBuilder = new MultiMatchQueryBuilder(requetBody.getQuery(), requetBody.getFields());
+//        QueryBuilders.boolQuery()
+//                        .must()
+        searchSourceBuilder.query(queryBuilder);
+        searchSourceBuilder.size(30);
+//        SearchResponse searchResponse = transportClient
+//                .prepareSearch(requetBody.getIndexName())
+//                .setQuery(queryBuilder)  //设置查询方式
+//                .get();
+        searchRequest.source(searchSourceBuilder);
+        SearchResponse searchResponse = null;
+        try {
+            searchResponse = transportClient.search(searchRequest).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
         SearchHits searchHits = searchResponse.getHits();
         SearchHit[] hits = searchHits.getHits();
         List<Map<String, Object>> list = new ArrayList<>();
         for (SearchHit hit : hits) {
             String sourceAsString = hit.getSourceAsString();
             JSONObject jsonObject = (JSONObject) JSONObject.parse(sourceAsString);
-//            IndexProperty indexProperty = (IndexProperty) new IndexProperty(jsonObject);
-//            IndexPropertyDto indexPropertyDto = new IndexPropertyDto(indexProperty);
-            // 对象转map，利用反射
             Field[] fields = IndexPropertyDto.class.getDeclaredFields();
             Map<String, Object> mp = new HashMap<>();
             for(Field field: fields){

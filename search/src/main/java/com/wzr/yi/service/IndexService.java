@@ -25,4 +25,6 @@ public interface IndexService {
 
     public String Testmybatis();
     public List<Map<String, Object>> testDruid();
+
+    public List<Map<String, Object>> sortResult(List<Map<String, Object>> result);
 }

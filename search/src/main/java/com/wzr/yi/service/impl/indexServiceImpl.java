@@ -182,4 +182,13 @@ public class indexServiceImpl implements IndexService {
         return list;
     }
 
+    @Override
+    public List<Map<String, Object>> sortResult(List<Map<String, Object>> result) {
+        // 召回排序，逻辑
+        // 1. 如果name全对，加10分
+        // 2。 如果名字不对，但是属于series一部分，加八分
+        // 3。 如果query中包含数据
+        return null;
+    }
+
 }

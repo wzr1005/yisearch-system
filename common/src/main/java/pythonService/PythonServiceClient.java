@@ -2,6 +2,8 @@ package pythonService;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
 
@@ -9,9 +11,11 @@ import java.util.concurrent.TimeUnit;
  * @autor zhenrenwu
  * @date 2022/6/13 2:19 上午
  */
+@Component
 public class TestClient {
     private final ManagedChannel channel;
     private final EditDistServiceGrpc.EditDistServiceBlockingStub blockingStub;
+
 
     public TestClient(String host, int port){
         channel = ManagedChannelBuilder.forAddress(host, port)

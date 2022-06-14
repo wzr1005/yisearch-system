@@ -1,18 +1,12 @@
 package com.wzr.yi.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.wzr.yi.Mapper.IndexPropertyMapper;
+import com.wzr.yi.bean.BeanUtils;
 import com.wzr.yi.bean.EsRequetBody;
-import com.wzr.yi.config.ElasticsearchConfig;
-import com.wzr.yi.config.MysqlConfig;
 import com.wzr.yi.entity.IndexProperty;
 import com.wzr.yi.entity.IndexPropertyDto;
+import com.wzr.yi.service.SearchPrepareService;
 import com.wzr.yi.util.*;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.proxy.Enhancer;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 import com.wzr.yi.service.IndexService;
 import java.io.*;
@@ -21,7 +15,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadPoolExecutor;
 
+import static com.wzr.yi.Constant.Constant.*;
 import static com.wzr.yi.util.MyStringUtils.ObjectToString;
+import static com.wzr.yi.util.matchSortUtils.getEditDistance;
 
 /**
  * @autor zhenrenwu
@@ -34,13 +30,12 @@ public class searchController {
 
     private final IndexService indexService;
     private final ElasticSearchUtil elasticSearchUtil;
-
+    private final SearchPrepareService searchPrepareService;
+    private final BeanUtils beanUtils;
     @GetMapping("/hello")
     public String test(){
         return "hello";
     }
-
-
 
     @GetMapping("/testMybatis")
     public String testDb(){
@@ -58,6 +53,9 @@ public class searchController {
         LoadTextByLineMulti loadTextByLineMulti = new LoadTextByLineMulti(FilePath);
         indexService.BulkInsertMysql(loadTextByLineMulti.loadLineDataMulti(IndexPropertyDto.class));
     }
+
+
+
     @GetMapping("/esBulk")
     public void BulkInsertEs(String index, String type){
         String path = "/Users/zhenrenwu/Documents/txwd/film_entity.txt";
@@ -83,11 +81,25 @@ public class searchController {
     @PostMapping("/testes")
     public List<Map<String, Object>> TestEs(@RequestBody EsRequetBody requestBody){
         System.out.println(requestBody);
-        return elasticSearchUtil.queryEs(requestBody);
+        List<Map<String, Object>> resultList = new ArrayList<>();
+        // 对query进行分析、拆解
+        List<EsRequetBody> esRequetBodyList = searchPrepareService.QUAnalysis(requestBody);
+        // 将QU过后的query进行查询，获得结果
+        esRequetBodyList.forEach(
+                requetBody -> {
+                    // 对查询对结果进行排序
+                    List<Map<String, Object>> result = elasticSearchUtil.queryEs(requetBody);
+                    resultList.addAll(result);
+                }
+        );
+        resultList.addAll(elasticSearchUtil.queryEs(requestBody));
+        return resultList;
     }
 
     @DeleteMapping("/deletedoc")
     public void DeleteDoc(String index, String type, String id){
         elasticSearchUtil.deleteDataById(index, type, id);
     }
+
+
 }
