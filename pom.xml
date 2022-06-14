@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
+        <module>common</module>
         <module>login</module>
         <module>search</module>
         <module>friends</module>
         <module>yi-system</module>
-        <module>common</module>
         <!--        <module>dataprocess</module>-->
     </modules>
     <parent>
@@ -106,54 +106,50 @@
             <artifactId>assertj-core</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-redis</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-redis</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <version>4.12</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.security</groupId>-->
-        <!--            <artifactId>spring-security-config</artifactId>-->
-        <!--            <version>5.3.3.RELEASE</version>-->
-        <!--        </dependency>-->
-        <!--        &lt;!&ndash; screw核心 &ndash;&gt;-->
-        <!--        <dependency>-->
-        <!--            <groupId>cn.smallbun.screw</groupId>-->
-        <!--            <artifactId>screw-core</artifactId>-->
-        <!--            <version>1.0.3</version>-->
-        <!--        </dependency>-->
 
-        <!--        &lt;!&ndash; HikariCP &ndash;&gt;-->
-        <!--        <dependency>-->
-        <!--            <groupId>com.zaxxer</groupId>-->
-        <!--            <artifactId>HikariCP</artifactId>-->
-        <!--            <version>3.4.5</version>-->
-        <!--        </dependency>-->
-
-        <!--        &lt;!&ndash;mysql driver&ndash;&gt;-->
-        <!--&lt;!&ndash;        <dependency>&ndash;&gt;-->
-        <!--&lt;!&ndash;            <groupId>mysql</groupId>&ndash;&gt;-->
-        <!--&lt;!&ndash;            <artifactId>mysql-connector-java</artifactId>&ndash;&gt;-->
-        <!--&lt;!&ndash;            <version>8.0.20</version>&ndash;&gt;-->
-        <!--&lt;!&ndash;        </dependency>&ndash;&gt;-->
+<!--        grpc-->
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-netty-shaded</artifactId>
+            <version>1.26.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-protobuf</artifactId>
+            <version>1.26.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-stub</artifactId>
+            <version>1.26.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>annotations-api</artifactId>
+            <version>6.0.53</version>
+        </dependency>
     </dependencies>
 
     <build>
+        <extensions>
+            <extension>
+                <groupId>kr.motd.maven</groupId>
+                <artifactId>os-maven-plugin</artifactId>
+                <version>1.5.0.Final</version>
+            </extension>
+        </extensions>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -167,61 +163,24 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <!--            <plugin>-->
-            <!--                <groupId>org.springframework.boot</groupId>-->
-            <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-            <!--            </plugin>-->
-            <!--            <plugin>-->
-            <!--                <groupId>cn.smallbun.screw</groupId>-->
-            <!--                <artifactId>screw-maven-plugin</artifactId>-->
-            <!--                <version>1.0.3</version>-->
-            <!--                <dependencies>-->
-            <!--                    &lt;!&ndash; HikariCP &ndash;&gt;-->
-            <!--                    <dependency>-->
-            <!--                        <groupId>com.zaxxer</groupId>-->
-            <!--                        <artifactId>HikariCP</artifactId>-->
-            <!--                        <version>3.4.5</version>-->
-            <!--                    </dependency>-->
-            <!--                    &lt;!&ndash;mysql driver&ndash;&gt;-->
-            <!--                    <dependency>-->
-            <!--                        <groupId>mysql</groupId>-->
-            <!--                        <artifactId>mysql-connector-java</artifactId>-->
-            <!--                        <version>8.0.20</version>-->
-            <!--                    </dependency>-->
-            <!--                </dependencies>-->
-            <!--                <configuration>-->
-            <!--                    &lt;!&ndash;username&ndash;&gt;-->
-            <!--                    <username>root</username>-->
-            <!--                    &lt;!&ndash;password&ndash;&gt;-->
-            <!--                    <password>123456</password>-->
-            <!--                    &lt;!&ndash;driver&ndash;&gt;-->
-            <!--                    <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>-->
-            <!--                    &lt;!&ndash;jdbc url&ndash;&gt;-->
-            <!--                    <jdbcUrl>jdbc:mysql://41.92.6.5:3306/fire</jdbcUrl>-->
-            <!--                    &lt;!&ndash;生成文件类型&ndash;&gt;-->
-            <!--                    <fileType>HTML</fileType>-->
-            <!--                    &lt;!&ndash;打开文件输出目录&ndash;&gt;-->
-            <!--                    <openOutputDir>false</openOutputDir>-->
-            <!--                    &lt;!&ndash;生成模板&ndash;&gt;-->
-            <!--                    <produceType>freemarker</produceType>-->
-            <!--                    &lt;!&ndash;文档名称 为空时:将采用[数据库名称-描述-版本号]作为文档名称&ndash;&gt;-->
-            <!--                    &lt;!&ndash;<docName>测试文档名称</docName>&ndash;&gt;-->
-            <!--                    &lt;!&ndash;描述&ndash;&gt;-->
-            <!--                    <description>数据库文档生成</description>-->
-            <!--                    &lt;!&ndash;版本&ndash;&gt;-->
-            <!--                    <version>${project.version}</version>-->
-            <!--                    &lt;!&ndash;标题&ndash;&gt;-->
-            <!--                    <title>fire数据库文档</title>-->
-            <!--                </configuration>-->
-            <!--                <executions>-->
-            <!--                    <execution>-->
-            <!--                        <phase>compile</phase>-->
-            <!--                        <goals>-->
-            <!--                            <goal>run</goal>-->
-            <!--                        </goals>-->
-            <!--                    </execution>-->
-            <!--                </executions>-->
-            <!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>org.xolstice.maven.plugins</groupId>-->
+<!--                <artifactId>protobuf-maven-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <protocArtifact>com.google.protobuf:protoc:3.5.1-1:exe:${os.detected.classifier}</protocArtifact>-->
+<!--                    <pluginId>grpc-java</pluginId>-->
+<!--                    <protoSourceRoot>{project.basedir}/src/main/java/com/wzr/yi/grpc</protoSourceRoot>-->
+<!--                    <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.16.1:exe:${os.detected.classifier}</pluginArtifact>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>compile</goal>-->
+<!--                            <goal>compile-custom</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
         </plugins>
 
     </build>
