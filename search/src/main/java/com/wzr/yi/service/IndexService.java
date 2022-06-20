@@ -1,7 +1,6 @@
 package com.wzr.yi.service;
 
-import com.wzr.yi.bean.EsRequetBody;
-import com.wzr.yi.entity.IndexProperty;
+import com.wzr.yi.bean.EsRequestBody;
 import com.wzr.yi.entity.IndexPropertyDto;
 import org.springframework.http.ResponseEntity;
 
@@ -17,7 +16,7 @@ public interface IndexService {
 
     public ResponseEntity createIndex();
 
-    ResponseEntity createIndex(EsRequetBody esRequetBody) throws ExecutionException, InterruptedException;
+    ResponseEntity createIndex(EsRequestBody esRequestBody) throws ExecutionException, InterruptedException;
 
     public boolean redis();
 

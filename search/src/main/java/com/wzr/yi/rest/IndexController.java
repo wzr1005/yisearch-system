@@ -1,14 +1,9 @@
 package com.wzr.yi.rest;
 
-import com.alibaba.fastjson.JSONObject;
-import com.wzr.yi.bean.EsRequetBody;
+import com.wzr.yi.bean.EsRequestBody;
 import com.wzr.yi.service.IndexService;
 
 import lombok.RequiredArgsConstructor;
-import org.elasticsearch.action.get.GetRequestBuilder;
-import org.elasticsearch.action.search.SearchResponse;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.search.SearchHits;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,29 +23,29 @@ public class IndexController {
     private final IndexService indexService;
 //    @RequestMapping("/getIndices")
 //    @ResponseBody
-//    public ResponseEntity getIndices(@RequestBody EsRequetBody esRequetBody) throws ExecutionException, InterruptedException {
+//    public ResponseEntity getIndices(@RequestBody EsrequestBody esrequestBody) throws ExecutionException, InterruptedException {
 //
 //    }
 
     @RequestMapping("/redis")
-    public boolean getRedis(EsRequetBody esRequetBody){
+    public boolean getRedis(EsRequestBody esRequestBody){
         return indexService.redis();
     }
 
     @RequestMapping("/createIndex")
-    public ResponseEntity createIndex(@RequestBody EsRequetBody esRequetBody) throws ExecutionException, InterruptedException {
-        return indexService.createIndex(esRequetBody);
+    public ResponseEntity createIndex(@RequestBody EsRequestBody esRequestBody) throws ExecutionException, InterruptedException {
+        return indexService.createIndex(esRequestBody);
     }
 
 
 //    @GetMapping("/getData")
 //    @ResponseBody
-//    public String getData(@RequestBody EsRequetBody esRequetBody){
-//        if(StringUtils.isNotBlank(esRequetBody.getId())) {
-//        Map<String, Object> map= ElasticsearchUtil.searchDataById(esRequetBody.getIndexName(),esRequetBody.getType(),esRequetBody.getId(),esRequetBody.getFields());
-//        GetRequestBuilder getRequestBuilder = transportClient.prepareGet(esRequetBody.getIndexName(), esRequetBody.getType(), esRequetBody.getId());
+//    public String getData(@RequestBody EsrequestBody esrequestBody){
+//        if(StringUtils.isNotBlank(esrequestBody.getId())) {
+//        Map<String, Object> map= ElasticsearchUtil.searchDataById(esrequestBody.getIndexName(),esrequestBody.getType(),esrequestBody.getId(),esrequestBody.getFields());
+//        GetRequestBuilder getRequestBuilder = transportClient.prepareGet(esrequestBody.getIndexName(), esrequestBody.getType(), esrequestBody.getId());
 //
-//        SearchResponse searchResponse = transportClient.prepareSearch(esRequetBody.getIndexName()).setTypes(esRequetBody.getType()).setQuery(QueryBuilders
+//        SearchResponse searchResponse = transportClient.prepareSearch(esrequestBody.getIndexName()).setTypes(esrequestBody.getType()).setQuery(QueryBuilders
 //                .matchAllQuery()).setFetchSource("*","age").get();
 //
 //        SearchHits map = searchResponse.getHits();
@@ -58,8 +53,8 @@ public class IndexController {
 //    }
 
 //    @PostMapping("/createIndex")
-//    public Boolean createIndex(@RequestBody EsRequetBody esRequetBody){
-//        String indexName = esRequetBody.getIndexName();
+//    public Boolean createIndex(@RequestBody EsrequestBody esrequestBody){
+//        String indexName = esrequestBody.getIndexName();
 //        if(!ElasticsearchUtil.isIndexExist(indexName)){
 //            return false;
 //        }

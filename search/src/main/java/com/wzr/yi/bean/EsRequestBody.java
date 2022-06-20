@@ -1,16 +1,8 @@
 package com.wzr.yi.bean;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.databind.json.JsonMapper;
-import com.wzr.yi.entity.IndexPropertyDto;
-import com.wzr.yi.util.MyStringUtils;
 import lombok.Data;
-import org.elasticsearch.index.query.QueryBuilder;
 
-import java.lang.reflect.Field;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,7 +10,7 @@ import java.util.Map;
  * @date 2022/2/20 4:43 下午
  */
 @Data
-public class EsRequetBody implements Cloneable {
+public class EsRequestBody implements Cloneable {
     private String indexName;
     private String type;
     private String id;
@@ -29,7 +21,9 @@ public class EsRequetBody implements Cloneable {
     private String pay;
     private String excludes;
     private String json;
+    private String category;
     private String query;
+    private String playLink;
     private String[] fields;
     public static Map<String, Float> BOOSTMAP = new HashMap<>();
     static {
@@ -40,7 +34,7 @@ public class EsRequetBody implements Cloneable {
         BOOSTMAP.put("alias", 4.0F);
     }
 
-//    public EsRequetBody deepClone() {
+//    public EsrequestBody deepClone() {
 //        Field[] fields = this.getClass().getDeclaredFields();
 //        Map<String, Object> mp = new HashMap<>();
 //        for(Field field: fields){
@@ -54,25 +48,26 @@ public class EsRequetBody implements Cloneable {
 //        }
 //        String json = JSON.toJSONString(mp);
 //        JSONObject jsonObject = JSON.parseObject(json);
-//        return (EsRequetBody) jsonObject;
+//        return (EsrequestBody) jsonObject;
 //
 //    }
 
-    public EsRequetBody() {
+    public EsRequestBody() {
+        this.fields = new String[]{"name", "describeInfo", "starring"};
     }
 
-    public EsRequetBody(EsRequetBody esRequetBody) {
-        this.indexName = esRequetBody.getIndexName();
-        this.type = esRequetBody.getType();
-        this.id = esRequetBody.getId();
-        this.year = esRequetBody.getYear();
-        this.series = esRequetBody.getSeries();
-        this.resource = esRequetBody.getResource();
-        this.mapping = esRequetBody.getMapping();
-        this.pay = esRequetBody.pay;
-        this.excludes = esRequetBody.getExcludes();
-        this.json = esRequetBody.getJson();
-        this.query = esRequetBody.getQuery();
-        this.fields = esRequetBody.getFields();
+    public EsRequestBody(EsRequestBody esRequestBody) {
+        this.indexName = esRequestBody.getIndexName();
+        this.type = esRequestBody.getType();
+        this.id = esRequestBody.getId();
+        this.year = esRequestBody.getYear();
+        this.series = esRequestBody.getSeries();
+        this.resource = esRequestBody.getResource();
+        this.mapping = esRequestBody.getMapping();
+        this.pay = esRequestBody.pay;
+        this.excludes = esRequestBody.getExcludes();
+        this.json = esRequestBody.getJson();
+        this.query = esRequestBody.getQuery();
+        this.fields = esRequestBody.getFields();
     }
 }

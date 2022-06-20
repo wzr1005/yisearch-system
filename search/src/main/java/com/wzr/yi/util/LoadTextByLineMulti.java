@@ -65,7 +65,7 @@ public class LoadTextByLineMulti {
             }
         }
         long detTime = System.currentTimeMillis() - beginTime;
-        log.info(String.format("读取 %d条数据，实际%d条, cost %d", list.size(), 78612, detTime));
+        log.info(String.format("读取 %d条数据, cost %d", list.size(), detTime));
 
         return list;
     }
@@ -115,7 +115,7 @@ public class LoadTextByLineMulti {
         }
         long detTime = System.currentTimeMillis()-beginTime;
         if(ThreadPoolUtils.isCompleted(executorService)){
-            log.info(String.format("读取 %d条数据，实际%d条, cost %d", list.size(), 78612, detTime));
+            log.info(String.format("读取 %d条数据 cost %d", list.size(), detTime));
         }
         return list;
     }
@@ -165,7 +165,7 @@ public class LoadTextByLineMulti {
             list.add(finalLine);
         }
         long detTime = System.currentTimeMillis()-beginTime;
-        log.info(String.format("读取 %d条数据，实际%d条, cost %d", list.size(), 78612, detTime));
+        log.info(String.format("读取 %d条数据， cost %d", list.size(), detTime));
         return list;
     }
     public static void main(String[] args) {

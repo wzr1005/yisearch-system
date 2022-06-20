@@ -1,6 +1,6 @@
 package com.wzr.yi.service;
 
-import com.wzr.yi.bean.EsRequetBody;
+import com.wzr.yi.bean.EsRequestBody;
 
 import java.util.List;
 
@@ -11,6 +11,6 @@ import java.util.List;
  */
 public interface SearchPrepareService {
 
-    public List<EsRequetBody> QUAnalysis(EsRequetBody esRequetBody);
+    public List<EsRequestBody> QUAnalysis(EsRequestBody esRequestBody);
 
 }

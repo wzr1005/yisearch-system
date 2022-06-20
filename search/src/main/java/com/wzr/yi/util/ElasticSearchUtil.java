@@ -3,14 +3,14 @@ package com.wzr.yi.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.wzr.yi.bean.EsRequetBody;
+import com.wzr.yi.bean.EsRequestBody;
+import com.wzr.yi.dto.BangdanDto;
 import com.wzr.yi.entity.IndexProperty;
 import com.wzr.yi.entity.IndexPropertyDto;
 import com.wzr.yi.exception.BadRequestException;
 import com.wzr.yi.util.Dto.EsPage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.elasticsearch.action.ActionFuture;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
 import org.elasticsearch.action.admin.indices.exists.indices.IndicesExistsRequest;
@@ -29,7 +29,6 @@ import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
 import org.elasticsearch.action.update.UpdateRequest;
-import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.transport.TransportClient;
 import org.elasticsearch.common.text.Text;
 import org.elasticsearch.common.unit.ByteSizeUnit;
@@ -46,7 +45,7 @@ import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.stereotype.Component;
-
+import static com.wzr.yi.Constant.Constant.*;
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
@@ -73,27 +72,18 @@ public class ElasticSearchUtil {
     }
 
 
-
-
-    public List<Map<String, Object>> queryEs(EsRequetBody requetBody){
-        // es Java客户端查询案例
-        //搜索请求对象
-
-        SearchRequest searchRequest = new SearchRequest(requetBody.getIndexName());
-        searchRequest.types(requetBody.getType());
+    public List<Map<String, Object>> queryHot(EsRequestBody requestBody){
+        SearchRequest searchRequest = new SearchRequest(requestBody.getIndexName());
+        searchRequest.types(requestBody.getType());
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-        //搜索方式
-        //MultiMatchQuery
-
-        QueryBuilder queryBuilder = new MultiMatchQueryBuilder(requetBody.getQuery(), requetBody.getFields());
-//        QueryBuilders.boolQuery()
-//                        .must()
+        QueryBuilder queryBuilder = QueryBuilders.matchAllQuery();
         searchSourceBuilder.query(queryBuilder);
-        searchSourceBuilder.size(30);
-//        SearchResponse searchResponse = transportClient
-//                .prepareSearch(requetBody.getIndexName())
-//                .setQuery(queryBuilder)  //设置查询方式
-//                .get();
+        searchSourceBuilder.sort("hotCount", SortOrder.DESC);
+        searchSourceBuilder.size(50);
+        return getMapList(searchRequest, searchSourceBuilder, IndexPropertyDto.class);
+    }
+
+    private List<Map<String, Object>> getMapList(SearchRequest searchRequest, SearchSourceBuilder searchSourceBuilder, Class T) {
         searchRequest.source(searchSourceBuilder);
         SearchResponse searchResponse = null;
         try {
@@ -103,13 +93,58 @@ public class ElasticSearchUtil {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+        return processResponse(searchResponse, T);
+    }
+
+    public List<Map<String, Object>> queryAll(EsRequestBody requestBody){
+        SearchRequest searchRequest = new SearchRequest(requestBody.getIndexName());
+        searchRequest.types(requestBody.getType());
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        searchSourceBuilder.query(QueryBuilders.matchAllQuery());
+
+        return getMapList(searchRequest, searchSourceBuilder, IndexPropertyDto.class);
+
+    }
+    
+    public List<Map<String, Object>> queryBangdan(EsRequestBody requestBody){
+
+        SearchRequest searchRequest = new SearchRequest(requestBody.getIndexName());
+        searchRequest.types("_doc");
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        searchSourceBuilder.sort("order");
+        searchSourceBuilder.query(QueryBuilders.matchQuery("bangdan", BANGDANMAP.get(requestBody.getCategory())));
+
+        return getMapList(searchRequest, searchSourceBuilder, BangdanDto.class);
+    }
+    public List<Map<String, Object>> queryEs(EsRequestBody requestBody){
+        // es Java客户端查询案例
+        //搜索请求对象
+
+        SearchRequest searchRequest = new SearchRequest(requestBody.getIndexName());
+        searchRequest.types(requestBody.getType());
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        //搜索方式
+        //MultiMatchQuery
+
+        QueryBuilder queryBuilder = new MultiMatchQueryBuilder(requestBody.getQuery(), requestBody.getFields());
+//        QueryBuilders.boolQuery()
+//                        .must()
+        searchSourceBuilder.query(queryBuilder);
+        searchSourceBuilder.size(30);
+//        SearchResponse searchResponse = transportClient
+//                .prepareSearch(requestBody.getIndexName())
+//                .setQuery(queryBuilder)  //设置查询方式
+//                .get();
+        return getMapList(searchRequest, searchSourceBuilder, IndexPropertyDto.class);
+    }
+    public List<Map<String, Object>> processResponse(SearchResponse searchResponse, Class T){
         SearchHits searchHits = searchResponse.getHits();
         SearchHit[] hits = searchHits.getHits();
         List<Map<String, Object>> list = new ArrayList<>();
         for (SearchHit hit : hits) {
             String sourceAsString = hit.getSourceAsString();
             JSONObject jsonObject = (JSONObject) JSONObject.parse(sourceAsString);
-            Field[] fields = IndexPropertyDto.class.getDeclaredFields();
+            Field[] fields = T.getDeclaredFields();
             Map<String, Object> mp = new HashMap<>();
             for(Field field: fields){
                 try {
@@ -125,7 +160,6 @@ public class ElasticSearchUtil {
 
         return list;
     }
-
     public boolean DeleteDoc(String index, String type, List<String> deleteList){
         deleteList.forEach(id->{
             DeleteResponse deleteResponse = transportClient.prepareDelete().setId(id).get();
@@ -154,15 +188,15 @@ public class ElasticSearchUtil {
     }
 
 
-    public CreateIndexResponse createIndex(EsRequetBody esRequetBody) throws ExecutionException, InterruptedException {
-        String indexName = esRequetBody.getIndexName();
+    public CreateIndexResponse createIndex(EsRequestBody esRequestBody) throws ExecutionException, InterruptedException {
+        String indexName = esRequestBody.getIndexName();
         if(indexName == null){
             throw new BadRequestException("索引名字不能为空");
         }
         CreateIndexRequest index = new CreateIndexRequest(indexName);
         //定义json格式映射
-        if(esRequetBody.getJson()!=null){
-            index.mapping(indexName,esRequetBody.getJson(), XContentType.JSON);
+        if(esRequestBody.getJson()!=null){
+            index.mapping(indexName, esRequestBody.getJson(), XContentType.JSON);
         }
         return transportClient.admin().indices().create(index).get();
     }
@@ -288,24 +322,20 @@ public class ElasticSearchUtil {
         log.info(String.format("总耗时 %d", System.currentTimeMillis()-beginTime));
     }
 
+
     /**
-     * 通过ID获取数据
      *
-     * @param index  索引，类似数据库
-     * @param type   类型，类似表
-     * @param id     数据ID
-     * @param fields 需要显示的字段，逗号分隔（缺省为全部字段）
+     * @param esRequestBody
      * @return
      */
+    public  List<Map<String,Object>> searchDataById(EsRequestBody requestBody) {
+        SearchRequest searchRequest = new SearchRequest(requestBody.getIndexName());
+        searchRequest.types("_doc");
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        searchSourceBuilder.query(QueryBuilders.matchQuery("id", requestBody.getId()));
 
+        return getMapList(searchRequest, searchSourceBuilder, IndexProperty.class);
 
-    public  Map<String,Object> searchDataById(String index, String type, String id, String fields) {
-        GetRequestBuilder getRequestBuilder = transportClient.prepareGet(index, type, id);
-        if (StringUtils.isNotEmpty(fields)) {
-            getRequestBuilder.setFetchSource(fields.split(","), null);
-        }
-        GetResponse getResponse = getRequestBuilder.execute().actionGet();
-        return getResponse.getSource();
     }
 
     /**

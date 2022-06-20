@@ -1,16 +1,10 @@
 package com.wzr.yi.service.impl;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 import com.wzr.yi.Factory.ThreadFactoryName;
 import com.wzr.yi.Mapper.IndexPropertyMapper;
-import com.wzr.yi.bean.EsRequetBody;
+import com.wzr.yi.bean.EsRequestBody;
 import com.wzr.yi.config.DruidPool;
-import com.wzr.yi.config.MyDataSource;
 import com.wzr.yi.config.MysqlConfig;
-import com.wzr.yi.entity.IndexProperty;
 import com.wzr.yi.entity.IndexPropertyDto;
 import com.wzr.yi.exception.BadRequestException;
 import com.wzr.yi.service.IndexService;
@@ -18,24 +12,18 @@ import com.wzr.yi.util.*;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.executor.ExecutorException;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Field;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static com.wzr.yi.util.MyStringUtils.generateSqlBatch;
-import static com.wzr.yi.util.MyStringUtils.getValueOrDefault;
 
 /**
  * @autor zhenrenwu
@@ -59,17 +47,17 @@ public class indexServiceImpl implements IndexService {
     }
 
     @Override
-    public ResponseEntity createIndex(EsRequetBody esRequetBody) throws ExecutionException, InterruptedException {
-        String indexName = esRequetBody.getIndexName();
+    public ResponseEntity createIndex(EsRequestBody esRequestBody) throws ExecutionException, InterruptedException {
+        String indexName = esRequestBody.getIndexName();
         if(indexName == null){
             throw new BadRequestException("索引名字不能为空");
         }
         CreateIndexRequest index = new CreateIndexRequest(indexName);
         //定义json格式映射
-        if(esRequetBody.getJson()!=null){
-            index.mapping(indexName,esRequetBody.getJson(), XContentType.JSON);
+        if(esRequestBody.getJson()!=null){
+            index.mapping(indexName, esRequestBody.getJson(), XContentType.JSON);
         }
-        return new ResponseEntity(elasticSearchUtil.createIndex(esRequetBody), HttpStatus.OK);
+        return new ResponseEntity(elasticSearchUtil.createIndex(esRequestBody), HttpStatus.OK);
     }
 
     @Override

@@ -45,6 +45,7 @@ public class MyStringUtils {
 //        list.forEach(l->{
 //
 //        });
+        if(stringBuffer.capacity()!=0) return "";
         stringBuffer.deleteCharAt(stringBuffer.length()-1);
         return stringBuffer.toString();
     }

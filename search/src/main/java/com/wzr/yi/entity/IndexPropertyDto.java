@@ -1,6 +1,7 @@
 package com.wzr.yi.entity;
 
 import com.alibaba.fastjson.JSONObject;
+import com.wzr.yi.util.GetOrDefault;
 import lombok.Data;
 
 import javax.persistence.GeneratedValue;
@@ -17,8 +18,6 @@ import static com.wzr.yi.util.MyStringUtils.*;
  */
 @Data
 public class IndexPropertyDto {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String id;
 
     private String eid;
@@ -51,8 +50,12 @@ public class IndexPropertyDto {
 
     private String describeInfo;
 
+    private String playLink;
+    private String poster;
+
     public IndexPropertyDto(IndexProperty indexProperty) {
         this.eid = getValueOrDefault(indexProperty.getEid());
+        this.id = this.eid;
         this.name = getValueOrDefault(indexProperty.getName());
         this.serialName = getValueOrDefault(indexProperty.getSerialName());
         this.starring = getValueOrDefault(indexProperty.getStarring());
@@ -70,6 +73,8 @@ public class IndexPropertyDto {
         this.feature = getValueOrDefault(indexProperty.getFeature());
         this.status = getValueOrDefault(indexProperty.getStatus());
         this.describeInfo = getValueOrDefault(indexProperty.getDescribeInfo());
+        this.playLink = indexProperty.getPlayLink();
+        this.poster = indexProperty.getPoster();
     }
 
     @Override

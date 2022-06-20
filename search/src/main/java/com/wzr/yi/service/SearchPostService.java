@@ -1,6 +1,6 @@
 package com.wzr.yi.service;
 
-import com.wzr.yi.bean.EsRequetBody;
+import com.wzr.yi.bean.EsRequestBody;
 
 import java.util.List;
 import java.util.Map;
@@ -14,8 +14,8 @@ public interface SearchPostService {
     /**
      * 对一次搜索之后的结果集进行排序
      * @param list
-     * @param esRequetBody
+     * @param esRequestBody
      * @return
      */
-    public List<Map<String, Object>> resultSort(List<Map<String, Object>> list, EsRequetBody esRequetBody);
+    public List<Map<String, Object>> resultSort(List<Map<String, Object>> list, EsRequestBody esRequestBody);
 }
