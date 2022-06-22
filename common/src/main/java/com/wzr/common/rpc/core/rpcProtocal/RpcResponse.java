@@ -1,4 +1,4 @@
-package com.wzr.yi.rpc.core.rpcProtocal;
+package com.wzr.common.rpc.core.rpcProtocal;
 
 import lombok.Builder;
 import lombok.Data;

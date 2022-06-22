@@ -1,4 +1,4 @@
-package com.wzr.yi.exception;
+package com.wzr.common.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

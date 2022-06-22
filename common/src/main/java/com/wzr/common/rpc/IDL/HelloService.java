@@ -1,4 +1,4 @@
-package com.wzr.yi.rpc.IDL;
+package com.wzr.common.rpc.IDL;
 
 /**
  * @autor zhenrenwu

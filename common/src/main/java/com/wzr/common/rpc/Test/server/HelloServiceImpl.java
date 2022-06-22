@@ -1,8 +1,8 @@
-package com.wzr.yi.rpc.Test.server;
+package com.wzr.common.rpc.Test.server;
 
-import com.wzr.yi.rpc.IDL.HelloRequest;
-import com.wzr.yi.rpc.IDL.HelloResponse;
-import com.wzr.yi.rpc.IDL.HelloService;
+import com.wzr.common.rpc.IDL.HelloRequest;
+import com.wzr.common.rpc.IDL.HelloResponse;
+import com.wzr.common.rpc.IDL.HelloService;
 
 /**
  * @autor zhenrenwu

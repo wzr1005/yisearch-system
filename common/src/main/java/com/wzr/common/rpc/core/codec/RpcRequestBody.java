@@ -1,4 +1,4 @@
-package com.wzr.yi.rpc.core.codec;
+package com.wzr.common.rpc.core.codec;
 
 import lombok.Builder;
 import lombok.Data;

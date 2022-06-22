@@ -1,13 +1,12 @@
-package com.wzr.yi.rpc.core.client;
+package com.wzr.common.rpc.core.client;
 
-import com.wzr.yi.rpc.core.rpcProtocal.RpcRequest;
-import com.wzr.yi.rpc.core.rpcProtocal.RpcResponse;
+import com.wzr.common.rpc.core.rpcProtocal.RpcRequest;
+import com.wzr.common.rpc.core.rpcProtocal.RpcResponse;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 /**
  * @autor zhenrenwu

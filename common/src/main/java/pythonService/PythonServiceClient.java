@@ -2,7 +2,6 @@ package pythonService;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.concurrent.TimeUnit;
@@ -12,12 +11,12 @@ import java.util.concurrent.TimeUnit;
  * @date 2022/6/13 2:19 上午
  */
 @Component
-public class TestClient {
+public class PythonServiceClient {
     private final ManagedChannel channel;
     private final EditDistServiceGrpc.EditDistServiceBlockingStub blockingStub;
 
 
-    public TestClient(String host, int port){
+    public PythonServiceClient(String host, int port){
         channel = ManagedChannelBuilder.forAddress(host, port)
                 .usePlaintext()
                 .build();
@@ -27,7 +26,7 @@ public class TestClient {
     public void shutdown() throws InterruptedException{
         channel.shutdown().awaitTermination(5, TimeUnit.SECONDS);
     }
-    public void PythonServer(String query, String target){
+    public float EditDistServer(String query, String target){
         EditDist.EditDistRequest request = EditDist.EditDistRequest.newBuilder().setQuery(query).setTarget(target).build();
         EditDist.EditDistResponse response;
         try {
@@ -35,14 +34,15 @@ public class TestClient {
         } catch (Exception e) {
             System.out.println("RPC请求失败{0}" + e.getMessage());
             e.printStackTrace();
-            return;
+            return 0.0F;
         }
-        System.out.println("服务结果： ");
+        System.out.println(String.format("服务结果：query=%s\ttarget=%s相似度为 ", query, target));
         System.out.println(response.getResult());
+        return response.getResult();
     }
 
     public static void main(String[] args) {
-        TestClient testClient = new TestClient("localhost", 50000);
-        testClient.PythonServer("长津湖", "长津湖之水门桥");
+        PythonServiceClient pythonServiceClient = new PythonServiceClient("localhost", 50000);
+        pythonServiceClient.EditDistServer("短津湖", "长津湖");
     }
 }

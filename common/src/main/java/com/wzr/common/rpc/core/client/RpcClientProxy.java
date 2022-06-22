@@ -1,9 +1,9 @@
-package com.wzr.yi.rpc.core.client;
+package com.wzr.common.rpc.core.client;
 
-import com.wzr.yi.rpc.core.codec.RpcRequestBody;
-import com.wzr.yi.rpc.core.codec.RpcResponseBody;
-import com.wzr.yi.rpc.core.rpcProtocal.RpcRequest;
-import com.wzr.yi.rpc.core.rpcProtocal.RpcResponse;
+import com.wzr.common.rpc.core.codec.RpcRequestBody;
+import com.wzr.common.rpc.core.codec.RpcResponseBody;
+import com.wzr.common.rpc.core.rpcProtocal.RpcRequest;
+import com.wzr.common.rpc.core.rpcProtocal.RpcResponse;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

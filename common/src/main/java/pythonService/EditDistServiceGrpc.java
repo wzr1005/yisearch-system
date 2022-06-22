@@ -1,12 +1,18 @@
-package temp;
-
-import io.grpc.MethodDescriptor;
+package pythonService;
 
 import static io.grpc.MethodDescriptor.generateFullMethodName;
+import static io.grpc.stub.ClientCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ClientCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ClientCalls.asyncUnaryCall;
+import static io.grpc.stub.ClientCalls.blockingServerStreamingCall;
 import static io.grpc.stub.ClientCalls.blockingUnaryCall;
 import static io.grpc.stub.ClientCalls.futureUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncBidiStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncClientStreamingCall;
+import static io.grpc.stub.ServerCalls.asyncServerStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnaryCall;
+import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
@@ -21,30 +27,30 @@ public final class EditDistServiceGrpc {
   public static final String SERVICE_NAME = "pythonService.EditDistService";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<EditDist.EditDistRequest,
-      EditDist.EditDistResponse> getEditDistMethod;
+  private static volatile io.grpc.MethodDescriptor<pythonService.EditDist.EditDistRequest,
+      pythonService.EditDist.EditDistResponse> getEditDistMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
       fullMethodName = SERVICE_NAME + '/' + "EditDist",
-      requestType = EditDist.EditDistRequest.class,
-      responseType = EditDist.EditDistResponse.class,
+      requestType = pythonService.EditDist.EditDistRequest.class,
+      responseType = pythonService.EditDist.EditDistResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<EditDist.EditDistRequest,
-      EditDist.EditDistResponse> getEditDistMethod() {
-    io.grpc.MethodDescriptor<EditDist.EditDistRequest, EditDist.EditDistResponse> getEditDistMethod;
+  public static io.grpc.MethodDescriptor<pythonService.EditDist.EditDistRequest,
+      pythonService.EditDist.EditDistResponse> getEditDistMethod() {
+    io.grpc.MethodDescriptor<pythonService.EditDist.EditDistRequest, pythonService.EditDist.EditDistResponse> getEditDistMethod;
     if ((getEditDistMethod = EditDistServiceGrpc.getEditDistMethod) == null) {
       synchronized (EditDistServiceGrpc.class) {
         if ((getEditDistMethod = EditDistServiceGrpc.getEditDistMethod) == null) {
           EditDistServiceGrpc.getEditDistMethod = getEditDistMethod = 
-              io.grpc.MethodDescriptor.<EditDist.EditDistRequest, EditDist.EditDistResponse>newBuilder()
+              io.grpc.MethodDescriptor.<pythonService.EditDist.EditDistRequest, pythonService.EditDist.EditDistResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
                   "pythonService.EditDistService", "EditDist"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  EditDist.EditDistRequest.getDefaultInstance()))
+                  pythonService.EditDist.EditDistRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  EditDist.EditDistResponse.getDefaultInstance()))
+                  pythonService.EditDist.EditDistResponse.getDefaultInstance()))
                   .setSchemaDescriptor(new EditDistServiceMethodDescriptorSupplier("EditDist"))
                   .build();
           }
@@ -82,8 +88,8 @@ public final class EditDistServiceGrpc {
 
     /**
      */
-    public void editDist(EditDist.EditDistRequest request,
-                         io.grpc.stub.StreamObserver<EditDist.EditDistResponse> responseObserver) {
+    public void editDist(pythonService.EditDist.EditDistRequest request,
+        io.grpc.stub.StreamObserver<pythonService.EditDist.EditDistResponse> responseObserver) {
       asyncUnimplementedUnaryCall(getEditDistMethod(), responseObserver);
     }
 
@@ -93,8 +99,8 @@ public final class EditDistServiceGrpc {
             getEditDistMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                EditDist.EditDistRequest,
-                EditDist.EditDistResponse>(
+                pythonService.EditDist.EditDistRequest,
+                pythonService.EditDist.EditDistResponse>(
                   this, METHODID_EDIT_DIST)))
           .build();
     }
@@ -120,8 +126,8 @@ public final class EditDistServiceGrpc {
 
     /**
      */
-    public void editDist(EditDist.EditDistRequest request,
-                         io.grpc.stub.StreamObserver<EditDist.EditDistResponse> responseObserver) {
+    public void editDist(pythonService.EditDist.EditDistRequest request,
+        io.grpc.stub.StreamObserver<pythonService.EditDist.EditDistResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getEditDistMethod(), getCallOptions()), request, responseObserver);
     }
@@ -147,8 +153,7 @@ public final class EditDistServiceGrpc {
 
     /**
      */
-    public EditDist.EditDistResponse editDist(EditDist.EditDistRequest request) {
-      MethodDescriptor<EditDist.EditDistRequest, EditDist.EditDistResponse> editDistMethod = getEditDistMethod();
+    public pythonService.EditDist.EditDistResponse editDist(pythonService.EditDist.EditDistRequest request) {
       return blockingUnaryCall(
           getChannel(), getEditDistMethod(), getCallOptions(), request);
     }
@@ -174,8 +179,8 @@ public final class EditDistServiceGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<EditDist.EditDistResponse> editDist(
-        EditDist.EditDistRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<pythonService.EditDist.EditDistResponse> editDist(
+        pythonService.EditDist.EditDistRequest request) {
       return futureUnaryCall(
           getChannel().newCall(getEditDistMethod(), getCallOptions()), request);
     }
@@ -201,8 +206,8 @@ public final class EditDistServiceGrpc {
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
         case METHODID_EDIT_DIST:
-          serviceImpl.editDist((EditDist.EditDistRequest) request,
-              (io.grpc.stub.StreamObserver<EditDist.EditDistResponse>) responseObserver);
+          serviceImpl.editDist((pythonService.EditDist.EditDistRequest) request,
+              (io.grpc.stub.StreamObserver<pythonService.EditDist.EditDistResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -226,7 +231,7 @@ public final class EditDistServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
-      return EditDist.getDescriptor();
+      return pythonService.EditDist.getDescriptor();
     }
 
     @java.lang.Override
