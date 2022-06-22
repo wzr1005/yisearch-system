@@ -3,11 +3,11 @@ package com.wzr.yi.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.wzr.common.exception.BadRequestException;
 import com.wzr.yi.bean.EsRequestBody;
 import com.wzr.yi.dto.BangdanDto;
 import com.wzr.yi.entity.IndexProperty;
 import com.wzr.yi.entity.IndexPropertyDto;
-import com.wzr.yi.exception.BadRequestException;
 import com.wzr.yi.util.Dto.EsPage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -20,8 +20,6 @@ import org.elasticsearch.action.bulk.BulkProcessor;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.delete.DeleteResponse;
-import org.elasticsearch.action.get.GetRequestBuilder;
-import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchRequest;
@@ -45,7 +43,7 @@ import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.stereotype.Component;
-import static com.wzr.yi.Constant.Constant.*;
+
 import java.lang.reflect.Field;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
@@ -53,6 +51,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import static com.wzr.yi.Constant.Constant.BANGDANMAP;
 import static com.wzr.yi.util.ThreadPoolUtils.isCompleted;
 
 /**
@@ -325,7 +324,7 @@ public class ElasticSearchUtil {
 
     /**
      *
-     * @param esRequestBody
+     * @param requestBody
      * @return
      */
     public  List<Map<String,Object>> searchDataById(EsRequestBody requestBody) {
