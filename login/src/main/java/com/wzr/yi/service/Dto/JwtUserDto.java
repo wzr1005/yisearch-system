@@ -1,9 +1,7 @@
 package com.wzr.yi.service.Dto;
 
-import lombok.Getter;
 import lombok.AllArgsConstructor;
-
-import java.util.Collection;
+import lombok.Getter;
 
 /**
  * @autor zhenrenwu

@@ -1,7 +1,8 @@
 //package com.wzr.yi.service;
 //
+//import com.wzr.common.utils.RedisUtils;
 //import com.wzr.yi.config.bean.SecurityProperties;
-//import com.wzr.yi.utils.RedisUtils;
+//import com.wzr.common.*;
 //import org.springframework.stereotype.Service;
 //
 ///**

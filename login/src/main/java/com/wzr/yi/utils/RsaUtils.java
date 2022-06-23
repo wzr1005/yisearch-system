@@ -1,6 +1,7 @@
 package com.wzr.yi.utils;
 
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.stereotype.Component;
 
 import javax.crypto.Cipher;
 import java.security.*;
@@ -14,16 +15,15 @@ import java.security.spec.X509EncodedKeySpec;
  * @date 2022/2/19 8:39 下午
  * Rsa 工具类，公钥私钥生成，加解密
  */
+@Component
 public class RsaUtils {
 
     private static final String SRC = "123456";
 
     public static void main(String[] args) throws Exception {
-        System.out.println("\n");
         RsaKeyPair keyPair = generateKeyPair();
         System.out.println("公钥：" + keyPair.getPublicKey());
         System.out.println("私钥：" + keyPair.getPrivateKey());
-        System.out.println("\n");
         test1(keyPair);
         System.out.println("\n");
         test2(keyPair);
@@ -33,9 +33,11 @@ public class RsaUtils {
     /**
      * 公钥加密私钥解密
      */
-    private static void test1(RsaKeyPair keyPair) throws Exception {
+    public static void test1(RsaKeyPair keyPair) throws Exception {
         System.out.println("***************** 公钥加密私钥解密开始 *****************");
+        System.out.println("加密参数：公钥和密码");
         String text1 = encryptByPublicKey(keyPair.getPublicKey(), RsaUtils.SRC);
+        System.out.println("解密参数：私钥和加密过的密码");
         String text2 = decryptByPrivateKey(keyPair.getPrivateKey(), text1);
         System.out.println("加密前：" + RsaUtils.SRC);
         System.out.println("加密 后：" + text1);
@@ -52,7 +54,7 @@ public class RsaUtils {
      * 私钥加密公钥解密
      * @throws Exception /
      */
-    private static void test2(RsaKeyPair keyPair) throws Exception {
+    public static void test2(RsaKeyPair keyPair) throws Exception {
         System.out.println("***************** 私钥加密公钥解密开始 *****************");
         String text1 = encryptByPrivateKey(keyPair.getPrivateKey(), RsaUtils.SRC);
         String text2 = decryptByPublicKey(keyPair.getPublicKey(), text1);
