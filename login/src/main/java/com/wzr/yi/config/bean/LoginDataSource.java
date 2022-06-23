@@ -1,27 +1,19 @@
-package com.wzr.yi.config;
+package com.wzr.yi.config.bean;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.pool.DruidDataSourceFactory;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-
-import javax.sql.DataSource;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.Properties;
 
 /**
  * @autor zhenrenwu
- * @date 2022/6/2 10:14 下午
+ * @date 2022/6/23 10:42 上午
  */
 @Component
 @Slf4j
-public class MyDataSource {
+public class LoginDataSource {
     @Value("${spring.datasource.url}")
     private String url;
 
@@ -45,11 +37,11 @@ public class MyDataSource {
 
 
     //配置DataSource数据源
-    @Bean(name = "druidDataSource")
+    @Bean(name = "loginDruidDataSource")
     @ConfigurationProperties(prefix = "spring.datasource")
-    public DruidDataSource druidDataSource(){
+    public DruidDataSource loginDruidDataSource(){
         //加载配置文件
-        log.info("初始化bean druidDataSource. finished....");
+        log.info("初始化bean login druidDataSource. finished....");
         return new DruidDataSource();
     }
 }

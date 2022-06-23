@@ -1,10 +1,11 @@
-package com.wzr.yi.config;
+package com.wzr.yi.config.bean;
 
 import com.alibaba.druid.filter.Filter;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import com.wzr.yi.config.bean.LoginDataSource;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,19 +23,11 @@ import java.util.Map;
 
 /**
  * @autor zhenrenwu
- * @date 2022/6/2 10:39 下午
- * 使用 druid 连接池，主要是使用 DruidDataSourceFactory
- * 在程序初始化时，预先创建指定数量的数据库连接对象存储在池中。
- * 唯一的区别就是当调用连接的 close 方法时，底层不再是关闭销毁连接对象，
- * 而是将连接对象放入到连接池中，以便后续新的请求到来时，直接拿去使用。
- *
- * 1。 先创建一个工具类，该工具类用于提供获取连接池中的连接对象。
+ * @date 2022/6/23 1:12 上午
  */
 @Component
 @Slf4j
-public class DruidPools {
-
-
+public class DruidLoginPool {
     @Value("${spring.datasource.url}")
     private String url;
 
@@ -80,7 +73,7 @@ public class DruidPools {
         return list;
     }
 
-    public void executeSqlUpdate(String sql) {
+    public boolean executeSqlUpdate(String sql) {
         // 需要执行时，从连接池拿一个就行了
         Statement statement = null;
         Connection connection = null;
@@ -96,8 +89,9 @@ public class DruidPools {
         } catch (SQLException e) {
             e.printStackTrace();
             log.error("执行sql失败\t" + sql);
+            return false;
         }
-
+        return true;
     }
     @SneakyThrows
     public List<Map<String, Object>> parseResultSet(ResultSet resultSet){
@@ -113,15 +107,15 @@ public class DruidPools {
         return resultList;
     }
 
-    public DruidPools(SearchDataSource searchDataSource){
-        log.info("Spring Druid Pool 初始化");
-        if(druidDataSource == null){
+    public DruidLoginPool(DruidDataSource loginDruidDataSource){
+        log.info("Spring Druid Pool Login 初始化");
+        if(loginDruidDataSource == null){
             log.error("datasource not set");
         }
-        this.druidDataSource = druidDataSource;
+        this.druidDataSource = loginDruidDataSource;
     }
 
-//    public DruidPool() {
+    //    public DruidPool() {
 //        System.out.println("Spring默认无参构造");
 //    }
     /*druid监控，*/
@@ -155,6 +149,4 @@ public class DruidPools {
         statFilter.setMergeSql(true);// 是否将⽇志合并起来
         return statFilter;
     }
-
-
 }

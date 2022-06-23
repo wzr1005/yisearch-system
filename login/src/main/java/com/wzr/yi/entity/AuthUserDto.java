@@ -14,5 +14,10 @@ public class AuthUserDto {
     private String code;
     private String token;
 
+    private String uuid = "";
 
+    public AuthUserDto(YiUser yiUser) {
+        this.userCount = yiUser.getUserCount();
+        this.password = yiUser.getPasswd();
+    }
 }
