@@ -1,15 +1,11 @@
 package com.wzr.yi.entity;
 
-import com.alibaba.fastjson.JSONObject;
-import com.wzr.yi.util.GetOrDefault;
 import lombok.Data;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.List;
 
-import static com.wzr.yi.util.MyStringUtils.*;
+import static com.wzr.yi.util.MyStringUtils.getValueOrDefault;
+import static com.wzr.yi.util.MyStringUtils.geyKeyWordFromList;
 
 
 /**

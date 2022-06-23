@@ -6,10 +6,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +17,7 @@ import java.util.Map;
 @Slf4j
 @RestController
 public class Test2 {
-    private final MyDataSource myDataSource;
+    private final SearchDataSource myDataSource;
 
     private final DruidPool druidPool;
     @SneakyThrows

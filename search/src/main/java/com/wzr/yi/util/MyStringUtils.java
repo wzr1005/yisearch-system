@@ -1,6 +1,5 @@
 package com.wzr.yi.util;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -110,4 +109,5 @@ public class MyStringUtils {
         stringBuffer.deleteCharAt(stringBuffer.length()-1).deleteCharAt(stringBuffer.length()-1);
         return stringBuffer.toString();
     }
+
 }

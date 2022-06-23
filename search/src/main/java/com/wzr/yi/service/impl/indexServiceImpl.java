@@ -1,14 +1,17 @@
 package com.wzr.yi.service.impl;
 
+import com.wzr.common.exception.BadRequestException;
 import com.wzr.yi.Factory.ThreadFactoryName;
-import com.wzr.yi.Mapper.IndexPropertyMapper;
+//import com.wzr.yi.Mapper.IndexPropertyMapper;
 import com.wzr.yi.bean.EsRequestBody;
 import com.wzr.yi.config.DruidPool;
 import com.wzr.yi.config.MysqlConfig;
 import com.wzr.yi.entity.IndexPropertyDto;
-import com.wzr.yi.exception.BadRequestException;
 import com.wzr.yi.service.IndexService;
-import com.wzr.yi.util.*;
+import com.wzr.yi.util.ElasticSearchUtil;
+import com.wzr.yi.util.MyStringUtils;
+//import com.wzr.yi.util.RedisUtils;
+import com.wzr.yi.util.ThreadPoolUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +22,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -35,8 +39,8 @@ import static com.wzr.yi.util.MyStringUtils.generateSqlBatch;
 public class indexServiceImpl implements IndexService {
 
     private final ElasticSearchUtil elasticSearchUtil;
-    private final RedisUtils redisUtils;
-    private final IndexPropertyMapper indexPropertyMapper;
+//    private final RedisUtils redisUtils;
+//    private final IndexPropertyMapper indexPropertyMapper;
     private final MyStringUtils myStringUtils;
     //注意这种默认就是单例，但是可以用他来创建新的其他实例
     private final MysqlConfig mysqlConfig;
@@ -60,10 +64,10 @@ public class indexServiceImpl implements IndexService {
         return new ResponseEntity(elasticSearchUtil.createIndex(esRequestBody), HttpStatus.OK);
     }
 
-    @Override
-    public boolean redis() {
-        return redisUtils.hasKey("1");
-    }
+//    @Override
+//    public boolean redis() {
+//        return redisUtils.hasKey("1");
+//    }
 
     @Override
     public boolean BulkInsertMysql(List<IndexPropertyDto> objList) {
@@ -158,9 +162,10 @@ public class indexServiceImpl implements IndexService {
 
     @Override
     public String Testmybatis() {
-        String version = indexPropertyMapper.findVersions();
-        System.out.println(version);
-        return version;
+//        String version = indexPropertyMapper.findVersions();
+//        System.out.println(version);
+//        return version;
+        return null;
     }
 
     @Override

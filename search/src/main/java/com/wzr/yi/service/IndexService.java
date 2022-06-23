@@ -18,7 +18,7 @@ public interface IndexService {
 
     ResponseEntity createIndex(EsRequestBody esRequestBody) throws ExecutionException, InterruptedException;
 
-    public boolean redis();
+//    public boolean redis();
 
     public boolean BulkInsertMysql(List<IndexPropertyDto> objList);
 

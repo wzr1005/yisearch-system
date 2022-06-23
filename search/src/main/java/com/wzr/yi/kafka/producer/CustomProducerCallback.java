@@ -2,6 +2,8 @@ package com.wzr.yi.kafka.producer;
 
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Properties;
 
@@ -9,7 +11,11 @@ import java.util.Properties;
  * @autor zhenrenwu
  * @date 2022/6/19 12:20 上午
  */
+@RequestMapping("/kafka")
+@RestController
 public class CustomProducerCallback {
+
+    @RequestMapping("/produce")
     public static void main(String[] args) {
         // 0. 配置
         Properties properties = new Properties();
@@ -25,7 +31,7 @@ public class CustomProducerCallback {
         properties.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, MyPartition.class.getName());
         // 2. 发送数据
         for (int i = 0; i < 5; i++) {
-            kafkaProducer.send(new ProducerRecord<>("first", "hello,zhenren baid\t" + i), new Callback() {
+            kafkaProducer.send(new ProducerRecord<>("first", 1,"","hello,zhenren baid\t" + i), new Callback() {
                 @Override
                 public void onCompletion(RecordMetadata recordMetadata, Exception e) {
                     if(e == null){

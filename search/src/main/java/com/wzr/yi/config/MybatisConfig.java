@@ -17,10 +17,9 @@
 // * @date 2022/6/1 11:22 下午
 // */
 //@Configuration
-//@MapperScan(basePackages = "mapper.mapper.dasheng", sqlSessionFactoryRef = "yiSearchSqlSessionFactory")
 //public class MybatisConfig {
-//    @Bean(name = "yiSearchSqlSessionFactory")
-//    public SqlSessionFactory sqlSessionFactory(@Qualifier("yiSearchDataSource") DataSource dataSource) throws Exception {
+//    @Bean(name = "searchDruidDataSource")
+//    public SqlSessionFactory sqlSessionFactory( DataSource dataSource) throws Exception {
 //        SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 //        bean.setDataSource(dataSource);
 //        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();

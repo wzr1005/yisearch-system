@@ -1,19 +1,15 @@
 package com.wzr.yi.util;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import com.alibaba.druid.pool.DruidDataSource;
-
-import javax.sql.DataSource;
 
 /**
  * @autor zhenrenwu
  * @date 2022/5/30 11:32 下午
  */
 @Slf4j
-@Component
+//@Component
 public class MysqlUtils {
 
     private String username;

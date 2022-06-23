@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
  * @autor zhenrenwu
  * @date 2022/6/2 10:14 下午
  */
-//@Component
+@Component
 @Slf4j
-public class MyDataSource {
+public class SearchDataSource {
     @Value("${spring.datasource.url}")
     private String url;
 
@@ -37,9 +37,9 @@ public class MyDataSource {
 
 
     //配置DataSource数据源
-    @Bean(name = "druidDataSource")
-//    @ConfigurationProperties(prefix = "spring.datasource")
-    public DruidDataSource druidDataSource(){
+    @Bean(name = "searchDruidDataSource")
+    @ConfigurationProperties(prefix = "spring.datasource")
+    public DruidDataSource searchDruidDataSource(){
         //加载配置文件
         log.info("初始化bean druidDataSource. finished....");
         return new DruidDataSource();

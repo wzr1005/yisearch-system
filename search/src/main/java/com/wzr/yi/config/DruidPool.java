@@ -32,7 +32,7 @@ import java.util.Map;
  */
 @Component
 @Slf4j
-public class DruidPools {
+public class DruidPool {
 
 
     @Value("${spring.datasource.url}")
@@ -113,12 +113,12 @@ public class DruidPools {
         return resultList;
     }
 
-    public DruidPools(SearchDataSource searchDataSource){
-        log.info("Spring Druid Pool 初始化");
-        if(druidDataSource == null){
+    public DruidPool(DruidDataSource searchDruidDataSource){
+        log.info("Spring Druid Pool search module 初始化");
+        if(searchDruidDataSource == null){
             log.error("datasource not set");
         }
-        this.druidDataSource = druidDataSource;
+        this.druidDataSource = searchDruidDataSource;
     }
 
 //    public DruidPool() {

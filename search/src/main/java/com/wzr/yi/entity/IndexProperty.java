@@ -1,13 +1,7 @@
 package com.wzr.yi.entity;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.core.JsonFactory;
-import static com.wzr.yi.util.GetOrDefault.*;
-import static com.wzr.yi.util.GetOrDefault.getString;
-
-import com.wzr.yi.util.GetOrDefault;
 import lombok.Data;
 
 import javax.persistence.GeneratedValue;
@@ -16,6 +10,8 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.wzr.yi.util.GetOrDefault.*;
 
 /**
  * @autor zhenrenwu

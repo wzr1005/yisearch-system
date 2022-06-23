@@ -3,15 +3,18 @@ package com.wzr.yi.controller;
 import com.wzr.yi.bean.BeanUtils;
 import com.wzr.yi.bean.EsRequestBody;
 import com.wzr.yi.entity.IndexPropertyDto;
+import com.wzr.yi.service.IndexService;
 import com.wzr.yi.service.SearchPostService;
 import com.wzr.yi.service.SearchPrepareService;
-import com.wzr.yi.util.*;
+import com.wzr.yi.util.ElasticSearchUtil;
+import com.wzr.yi.util.LoadTextByLineMulti;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import com.wzr.yi.service.IndexService;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -29,20 +32,6 @@ public class searchController {
     private final SearchPrepareService searchPrepareService;
     private final SearchPostService searchPostService;
     private final BeanUtils beanUtils;
-    @GetMapping("/hello")
-    public String test(){
-        return "hello";
-    }
-
-    @GetMapping("/testMybatis")
-    public String testDb(){
-        return indexService.Testmybatis();
-    }
-
-    @GetMapping("/testDruid")
-    public List<Map<String, Object>> testDruid(){
-        return indexService.testDruid();
-    }
 
 
     @PostMapping("/insert")
@@ -50,6 +39,8 @@ public class searchController {
         LoadTextByLineMulti loadTextByLineMulti = new LoadTextByLineMulti(FilePath);
         indexService.BulkInsertMysql(loadTextByLineMulti.loadLineDataMulti(IndexPropertyDto.class));
     }
+
+
 
     @PostMapping("/keywordSearch")
     public List<Map<String, Object>> TestEs(@RequestBody EsRequestBody requestBody){

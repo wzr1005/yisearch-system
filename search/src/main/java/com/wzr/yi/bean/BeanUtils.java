@@ -3,10 +3,6 @@ package com.wzr.yi.bean;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 
-import javax.persistence.criteria.Order;
-import java.io.*;
-import java.lang.reflect.Field;
-
 /**
  * @autor zhenrenwu
  * @date 2022/6/10 12:06 上午

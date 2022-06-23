@@ -1,7 +1,7 @@
 package com.wzr.yi.controller;
 
-import com.wzr.yi.MainApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2022/2/21 10:01 下午
  */
 @RestController
+@RequestMapping("/system")
 public class controller {
-    @GetMapping("/")
+    @GetMapping("/hello")
     public String test(){
         return "hello";
     }

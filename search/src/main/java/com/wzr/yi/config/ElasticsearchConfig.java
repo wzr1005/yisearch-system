@@ -7,7 +7,6 @@ import org.elasticsearch.common.transport.TransportAddress;
 import org.elasticsearch.index.query.MatchAllQueryBuilder;
 import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -64,9 +63,9 @@ public class ElasticsearchConfig {
         TransportAddress transportAddress = new TransportAddress(InetAddress.getByName(host), port);
         transportClient.addTransportAddresses(transportAddress);
         log.info("Elasticsearch初始化完成。");
-//        System.out.println(transportClient.prepareSearch("dangdang")
-//                .setQuery(new MatchAllQueryBuilder())
-//                .get());
+        System.out.println(transportClient.prepareSearch("film_index")
+                .setQuery(new MatchAllQueryBuilder())
+                .get());
         return transportClient;
     }
 }

@@ -1,13 +1,12 @@
 package com.wzr.yi.util;
 
-import static com.wzr.yi.Constant.Constant.*;
-
-import com.wzr.yi.Constant.Constant;
-import com.wzr.yi.service.impl.TestQu;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static com.wzr.yi.Constant.Constant.ImpurityArr;
+import static com.wzr.yi.Constant.Constant.resourceListCN;
 
 /**
  * @autor zhenrenwu

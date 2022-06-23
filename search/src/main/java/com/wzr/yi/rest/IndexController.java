@@ -2,11 +2,12 @@ package com.wzr.yi.rest;
 
 import com.wzr.yi.bean.EsRequestBody;
 import com.wzr.yi.service.IndexService;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.ExecutionException;
 
@@ -27,10 +28,10 @@ public class IndexController {
 //
 //    }
 
-    @RequestMapping("/redis")
-    public boolean getRedis(EsRequestBody esRequestBody){
-        return indexService.redis();
-    }
+//    @RequestMapping("/redis")
+//    public boolean getRedis(EsRequestBody esRequestBody){
+//        return indexService.redis();
+//    }
 
     @RequestMapping("/createIndex")
     public ResponseEntity createIndex(@RequestBody EsRequestBody esRequestBody) throws ExecutionException, InterruptedException {
