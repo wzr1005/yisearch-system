@@ -9,7 +9,7 @@ import java.util.List;
  * @date 2022/2/19 7:59 下午
  */
 @Data
-public class userKandan {
+public class userKankan {
 
     // 放于redis中
     private Integer Id;
