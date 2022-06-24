@@ -29,7 +29,7 @@ public class YiUser {
     public String emailAddress;
     public String signature;
 
-    public String avatar_path;
+    public String avatarPath;
     public String role;
     public String growthScore;
     public String growthLevel;
