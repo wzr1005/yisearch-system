@@ -1,4 +1,4 @@
-package com.wzr.yi.entity;
+package com.wzr.friends.entity;
 
 import lombok.Data;
 
