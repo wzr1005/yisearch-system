@@ -1,10 +1,10 @@
 package com.wzr.yi.test;
 
-import java.util.Properties;
-
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
+
+import java.util.Properties;
 
 /**
  * @autor zhenrenwu

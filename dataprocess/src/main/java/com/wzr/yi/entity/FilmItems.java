@@ -1,11 +1,8 @@
 package com.wzr.yi.entity;
 
-import com.alibaba.fastjson.JSON;
 import lombok.Data;
 
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @autor zhenrenwu

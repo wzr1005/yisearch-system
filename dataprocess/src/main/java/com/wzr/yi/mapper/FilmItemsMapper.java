@@ -1,7 +1,6 @@
 package com.wzr.yi.mapper;
 
 import com.wzr.yi.entity.FilmItems;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
