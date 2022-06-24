@@ -10,6 +10,8 @@
         <module>friends</module>
         <module>dataprocess</module>
         <module>yi-system</module>
+        <module>kankan</module>
+        <module>recommend</module>
         <!--        <module>dataprocess</module>-->
     </modules>
     <parent>
