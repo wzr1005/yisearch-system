@@ -7,13 +7,23 @@
         <groupId>com.wzr</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+    <artifactId>kankan</artifactId>
+    <name>kankan</name>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId> kankan</artifactId>
-
     <properties>
+        <java.version>1.8</java.version>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.wzr</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+
 
 </project>

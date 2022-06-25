@@ -2,6 +2,7 @@ package com.wzr.yi.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.wzr.yi.common.utils.ThreadPoolUtils;
 import com.wzr.yi.entity.IndexProperty;
 import com.wzr.yi.entity.IndexPropertyDto;
 import lombok.Data;
@@ -33,7 +34,6 @@ public class LoadTextByLineMulti {
 
     public LoadTextByLineMulti() {
     }
-
     /**
      * 泛型方法例子, 单线程读写
      * @param T

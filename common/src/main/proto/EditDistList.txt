@@ -1,0 +1,16 @@
+syntax = "proto3"; //版本声明
+package pythonService;
+
+service EditDistServiceList{
+  rpc EditDist(EditDistRequest) returns (EditDistResponse){}
+}
+
+message EditDistRequest{
+
+  repeated string query = 1;
+  string target = 2;
+}
+
+message EditDistResponse{
+  repeated float result = 1;
+}

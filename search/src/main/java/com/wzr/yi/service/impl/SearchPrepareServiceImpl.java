@@ -1,15 +1,14 @@
 package com.wzr.yi.service.impl;
 
-import com.wzr.yi.bean.EsRequestBody;
 import com.wzr.yi.service.SearchPrepareService;
+import com.wzr.yi.util.RegUtils;
+import com.wzr.yi.common.searchEntity.EsRequestBody;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.wzr.yi.util.RegUtils.*;
 
 /**
  * @autor zhenrenwu
@@ -39,7 +38,7 @@ public class SearchPrepareServiceImpl implements SearchPrepareService {
           */
         List<EsRequestBody> esRequestBodyList = new ArrayList<>();
         /* 先对query进行提纯 */
-        query = delImpurity(query);
+        query = RegUtils.delImpurity(query);
         if(query.contains(" ")){
             // query拆解
             String[] queryArr = query.split(" ");
@@ -48,22 +47,22 @@ public class SearchPrepareServiceImpl implements SearchPrepareService {
                 String ac = null;
 
                 // query中含有年份
-                if((ac = matchYear(q)) != ""){
+                if((ac = RegUtils.matchYear(q)) != ""){
                     requestBody.setYear(ac);
                     q = q.replace(ac, "");
                 }
                 // query中含有系列部
-                if((ac = matchSeries(query)) != ""){
+                if((ac = RegUtils.matchSeries(query)) != ""){
                     requestBody.setSeries(ac);
                     q = q.replace(ac, "");
                 }
                 // query中含有资源
-                if((ac = matchResource(query)) != ""){
+                if((ac = RegUtils.matchResource(query)) != ""){
                     requestBody.setResource(ac);
                     q = q.replace(ac, "");
                 }
                 // query中含有免费
-                if((ac = matchPay(query)) != ""){
+                if((ac = RegUtils.matchPay(query)) != ""){
                     requestBody.setPay("1");
                     q = q.replace(ac, "");
                 }

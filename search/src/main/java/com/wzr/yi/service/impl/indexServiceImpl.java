@@ -1,17 +1,6 @@
 package com.wzr.yi.service.impl;
 
-import com.wzr.common.exception.BadRequestException;
-import com.wzr.yi.Factory.ThreadFactoryName;
-//import com.wzr.yi.Mapper.IndexPropertyMapper;
-import com.wzr.yi.bean.EsRequestBody;
-import com.wzr.yi.config.DruidPool;
-import com.wzr.yi.config.MysqlConfig;
-import com.wzr.yi.entity.IndexPropertyDto;
 import com.wzr.yi.service.IndexService;
-import com.wzr.yi.util.ElasticSearchUtil;
-import com.wzr.yi.util.MyStringUtils;
-//import com.wzr.yi.util.RedisUtils;
-import com.wzr.yi.util.ThreadPoolUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -21,13 +10,22 @@ import org.elasticsearch.common.xcontent.XContentType;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
+import com.wzr.yi.common.exception.BadRequestException;
+import com.wzr.yi.common.Factory.ThreadFactoryName;
+import com.wzr.yi.common.searchEntity.EsRequestBody;
+import com.wzr.yi.common.utils.MyStringUtils;
+import com.wzr.yi.common.utils.ThreadPoolUtils;
+import com.wzr.yi.entity.IndexPropertyDto;
+import com.wzr.yi.common.config.DruidPool;
+import com.wzr.yi.common.config.MysqlConfig;
+import com.wzr.yi.common.utils.ElasticSearchUtil;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.wzr.yi.util.MyStringUtils.generateSqlBatch;
+import static com.wzr.yi.common.utils.MysqlUtils.generateSqlBatch;
+
 
 /**
  * @autor zhenrenwu

@@ -155,12 +155,7 @@ public class SnowIdWorker {
 
     public static void main(String[] args) {
         // 输出对象
-        SnowIdWorker idWorker = new SnowIdWorker(0, 0);
-        SeqTest seqTest = new SeqTest();
-        System.out.println(idWorker.getWorkerId());
-        System.out.println(idWorker.getDatacenterId());
-        System.out.println(idWorker.getSequence());
-        System.out.println(idWorker.nextId());
+        SnowIdWorker idWorker = new SnowIdWorker(0,0);
 //        System.out.println(idWorker.timeGen());
         System.out.println(idWorker.tilNextMillis(1652188761073L));
 //        for (int i = 0; i < 10; i++) {

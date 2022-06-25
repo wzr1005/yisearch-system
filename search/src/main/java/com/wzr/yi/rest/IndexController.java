@@ -1,6 +1,6 @@
 package com.wzr.yi.rest;
 
-import com.wzr.yi.bean.EsRequestBody;
+import com.wzr.yi.common.searchEntity.EsRequestBody;
 import com.wzr.yi.service.IndexService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

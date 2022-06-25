@@ -11,7 +11,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.wzr.yi.util.GetOrDefault.*;
+import static com.wzr.yi.common.utils.GetOrDefault.*;
+
 
 /**
  * @autor zhenrenwu
@@ -48,6 +49,8 @@ public class IndexProperty implements Serializable {
 
     private int year;
 
+
+
     private int hotCount;
 
     private String feature;
@@ -81,7 +84,8 @@ public class IndexProperty implements Serializable {
                 '}';
     }
 
-
+    public IndexProperty() {
+    }
     public IndexProperty(JSONObject obj) {
         this.eid = (String) obj.get("id");
         this.id = this.eid;
@@ -99,9 +103,9 @@ public class IndexProperty implements Serializable {
         this.alias = (List<String>) obj.get("alias");
         this.resourceWap = (List<String>) obj.get("resourceWapList");
         this.resourcePc = (List<String>) obj.get("resourcePcList");
-        this.resourceRank = getInteger(obj, "rank");
-        this.year = getInteger(obj, "yearOrigin");
-        this.hotCount = getInteger(obj, "hotCount");
+        this.resourceRank = obj.getInteger("rank");
+        this.year = obj.getInteger("yearOrigin");
+        this.hotCount = obj.getInteger("hotCount");
         this.feature = "";
         this.status = (String) obj.get("status");
         this.describeInfo = getString(obj, "describe");
@@ -134,9 +138,9 @@ public class IndexProperty implements Serializable {
         this.alias = (List<String>) obj.get("alias");
         this.resourceWap = (List<String>) obj.get("resourceWapList");
         this.resourcePc = (List<String>) obj.get("resourcePcList");
-        this.resourceRank = getInteger(obj, "rank");
-        this.year = getInteger(obj, "yearOrigin");
-        this.hotCount = getInteger(obj, "hotCount");
+        this.resourceRank = obj.getInteger("rank");
+        this.year = obj.getInteger("yearOrigin");
+        this.hotCount = obj.getInteger("hotCount");
         this.feature = "";
         this.status = (String) obj.get("status");
         this.describeInfo = getString(obj, "describe");

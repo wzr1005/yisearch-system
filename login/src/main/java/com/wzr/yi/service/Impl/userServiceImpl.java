@@ -1,12 +1,9 @@
 package com.wzr.yi.service.Impl;
 
-//import com.wzr.common.config.DruidLoginPool;
 import com.alibaba.fastjson.JSONObject;
-import com.wzr.yi.config.bean.DruidLoginPool;
-import com.wzr.yi.config.bean.RsaProperties;
-import com.wzr.yi.entity.AuthUserDto;
-import com.wzr.yi.entity.YiUser;
 import com.wzr.yi.service.UserService;
+import com.wzr.yi.common.config.DruidPool;
+import com.wzr.yi.entity.YiUser;
 import com.wzr.yi.utils.RsaUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +13,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
 
-import static com.wzr.common.constant.UserConstant.*;
-import static com.wzr.yi.utils.MysqlUtils.generateSqlInsert;
+import static com.wzr.yi.common.constant.UserConstant.validUserFields;
 
 /**
  * @autor zhenrenwu
@@ -28,7 +24,7 @@ import static com.wzr.yi.utils.MysqlUtils.generateSqlInsert;
 @Slf4j
 public class userServiceImpl implements UserService {
 
-    private final DruidLoginPool druidLoginPool;
+    private final DruidPool druidPool;
 
     private final RsaUtils rsaUtils;
     @Override
@@ -42,7 +38,7 @@ public class userServiceImpl implements UserService {
             value = (String) jsonObject.get(key);
             if(value.equals("")) continue;
             String sql = String.format("select count(*) count from yiuser where userCount = '%s'", value);
-            List<Map<String, Object>> mapList = druidLoginPool.executeSqlQuery(sql);
+            List<Map<String, Object>> mapList = druidPool.executeSqlQuery(sql);
             Map<String, Object> mp = mapList.get(0);
             long cnt = (long) mp.get("count");
             if(cnt != 0){

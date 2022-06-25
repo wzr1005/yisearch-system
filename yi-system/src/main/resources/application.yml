@@ -63,7 +63,10 @@ spring:
     username: root
     password: Wzr@3379779
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
   jpa:
     show-sql: true
     properties:

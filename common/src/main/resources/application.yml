@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: comman-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848

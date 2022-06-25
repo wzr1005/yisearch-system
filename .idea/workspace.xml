@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a8239241-2de4-43b9-9254-249f29661e32" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/utils/OutPutUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/utils/RedisUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/yi/controller/kankanController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/yi/entity/KankanItemInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/yi/service/Impl/KankanServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/yi/service/KankanService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jpa-buddy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_druid_1_1_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_70.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_82.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_carrotsearch_hppc_0_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_classmate_1_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_smile_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_dataformat_jackson_dataformat_yaml_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_luben_zstd_jni_1_5_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_spullara_mustache_java_compiler_0_9_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_android_annotations_4_1_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_api_grpc_proto_google_common_protos_1_12_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_2_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_errorprone_error_prone_annotations_2_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_failureaccess_1_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_28_1_android.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_listenablefuture_9999_0_empty_to_avoid_conflict_with_guava.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_j2objc_j2objc_annotations_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_11_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_activation_jakarta_activation_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_istack_istack_commons_runtime_3_0_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_tdunning_t_digest_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_4_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_api_1_26_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_context_1_26_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_core_1_26_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_netty_shaded_1_26_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_protobuf_1_26_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_protobuf_lite_1_26_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_grpc_grpc_stub_1_26_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_jsonwebtoken_jjwt_0_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_lettuce_lettuce_core_6_1_6_RELEASE.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_buffer_4_1_73_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_4_1_73_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_codec_http_4_1_73_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_common_4_1_73_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_handler_4_1_73_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_resolver_4_1_73_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_tcnative_classes_2_0_46_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_transport_4_1_73_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_opencensus_opencensus_api_0_24_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_opencensus_opencensus_contrib_grpc_metrics_0_24_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_perfmark_perfmark_api_0_19_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_projectreactor_reactor_core_3_4_14.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_persistence_jakarta_persistence_api_2_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_transaction_jakarta_transaction_api_1_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__joda_time_joda_time_2_10_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_29.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_11_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_11_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_2_4_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_4_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_jopt_simple_jopt_simple_5_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpasyncclient_4_1_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_nio_4_4_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_kafka_kafka_clients_2_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_kafka_kafka_clients_3_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_17_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_17_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_analyzers_common_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_backward_codecs_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_core_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_grouping_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_highlighter_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_join_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_memory_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_misc_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queries_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_queryparser_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_sandbox_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_spatial3d_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_spatial_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_spatial_extras_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_lucene_lucene_suggest_7_7_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_annotations_api_6_0_53.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_56.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_56.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_56.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_21_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_compat_qual_2_5_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_mojo_animal_sniffer_annotations_1_17.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_client_elasticsearch_rest_client_7_15_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_client_transport_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_elasticsearch_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_elasticsearch_cli_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_elasticsearch_core_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_elasticsearch_secure_sm_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_elasticsearch_ssl_config_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_elasticsearch_x_content_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_jna_4_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_plugin_lang_mustache_client_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_plugin_parent_join_client_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_plugin_percolator_client_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_plugin_rank_eval_client_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_plugin_reindex_client_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_elasticsearch_plugin_transport_netty4_client_6_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_jaxb_runtime_2_3_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jaxb_txw2_2_3_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hdrhistogram_HdrHistogram_2_1_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_5_1_2_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_5_6_4_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_jandex_2_4_2_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_4_3_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_lz4_lz4_java_1_4_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_lz4_lz4_java_1_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_4_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_4_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_5_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_2_0_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_autoconfigure_2_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_spring_boot_mybatis_spring_boot_starter_2_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_reactivestreams_reactive_streams_1_0_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_33.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_21.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_33.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_jpa_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_redis_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_6_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_jpa_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_keyvalue_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_redis_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aspects_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_oxm_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_15.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_testng_testng_7_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_jquery_3_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xerial_snappy_snappy_java_1_1_7_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xerial_snappy_snappy_java_1_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_8_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_29.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/yisearch-system.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/common.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/exception/BadRequestException.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/exception/BadRequestException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/IDL/HelloRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/IDL/HelloRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/IDL/HelloResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/IDL/HelloResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/IDL/HelloService.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/IDL/HelloService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/Test/TestConnect.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/Test/TestConnect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/Test/client/TestClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/Test/client/TestClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/Test/server/HelloServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/Test/server/HelloServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/Test/server/TestServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/Test/server/TestServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/core/client/RpcClientProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/core/client/RpcClientProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/core/client/RpcClientTransfer.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/core/client/RpcClientTransfer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/core/codec/RpcRequestBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/core/codec/RpcRequestBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/core/codec/RpcResponseBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/core/codec/RpcResponseBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/core/rpcProtocal/RpcRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/core/rpcProtocal/RpcRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/core/rpcProtocal/RpcResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/core/rpcProtocal/RpcResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/core/server/RpcServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/core/server/RpcServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/rpc/core/server/RpcServerWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/rpc/core/server/RpcServerWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/wzr/common/utils/RedisUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/wzr/yi/exception/BadRequestException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/dataprocess.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/entity/FilmItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/entity/FilmItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/entity/FilmResourceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/entity/FilmResourceList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/mapper/.a_images/6472e038.png" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/mapper/.a_images/6472e038.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/mapper/.a_images/ca18fd49.png" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/mapper/.a_images/ca18fd49.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/mapper/FilmItemsMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/mapper/FilmItemsMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/service/FilmItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/service/FilmItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/service/Impl/SourceDataServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/service/Impl/SourceDataServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/service/SourceDataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/service/SourceDataService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/test/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/test/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/test/KafkaCustomerDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/test/KafkaCustomerDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/test/KafkaProduceDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/test/KafkaProduceDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/test/SeqTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/test/SeqTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/test/SnowIdWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/dataprocess/src/main/java/com/wzr/yi/dataprocess/test/SnowIdWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friends/friends.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/friends/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/friends/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friends/src/main/java/com/wzr/friends/service/FriendsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/friends/src/main/java/com/wzr/friends/service/FriendsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friends/src/main/java/com/wzr/friends/service/Impl/FriendsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/friends/src/main/java/com/wzr/friends/service/Impl/FriendsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friends/target/classes/com/wzr/friends/service/FriendsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/friends/target/classes/com/wzr/friends/service/FriendsService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/friends/target/classes/com/wzr/friends/service/Impl/FriendsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/friends/target/classes/com/wzr/friends/service/Impl/FriendsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kankan/kankan.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kankan/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kankan/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/kandan/controller/kankanController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/kandan/entity/LikeInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/yi/entity/LikeInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/kandan/entity/kankanItemInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/kandan/entity/userKankan.java" beforeDir="false" afterPath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/yi/entity/userKankan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/kandan/service/Impl/KankanServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kankan/src/main/java/com/wzr/kandan/service/KankanService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/login.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/login/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/wzr/yi/config/bean/DruidLoginPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/login/src/main/java/com/wzr/yi/config/bean/DruidLoginPool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/wzr/yi/config/bean/RedisUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/wzr/yi/rest/userController.java" beforeDir="false" afterPath="$PROJECT_DIR$/login/src/main/java/com/wzr/yi/rest/userController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/wzr/yi/service/Impl/userServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/login/src/main/java/com/wzr/yi/service/Impl/userServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/com/wzr/yi/utils/MysqlUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/src/main/java/loginApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/config/bean/DruidLoginPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/config/bean/DruidLoginPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/config/bean/RedisUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/config/bean/RsaProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/config/bean/RsaProperties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/config/bean/SecurityProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/config/bean/SecurityProperties.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/rest/userController.class" beforeDir="false" afterPath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/rest/userController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/service/Impl/userServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/service/Impl/userServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login/target/classes/com/wzr/yi/utils/MysqlUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/recommend/recommend.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/search/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/search.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/Constant/Constant.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/constant/Constant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/Factory/ThreadFactoryName.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/Factory/ThreadFactoryName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/bean/BeanUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/bean/BeanUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/bean/EsRequestBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/searchEntity/EsRequestBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/bean/EsResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/searchEntity/EsResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/bean/RecommendBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/searchEntity/RecommendBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/config/DruidPool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/config/DynamicDataSourceConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/config/DynamicDataSourceConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/config/ElasticsearchConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/config/ElasticsearchConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/config/MybatisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/config/MybatisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/config/MysqlConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/config/MysqlConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/config/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/config/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/config/SearchDataSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/config/Test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/config/Test2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/controller/esDataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/searchController/esDataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/controller/homeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/searchController/homeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/controller/searchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/searchController/searchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/controller/testController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/dto/BangdanDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/searchEntity/Dto/BangdanDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/entity/IndexProperty.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/entity/IndexProperty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/entity/IndexPropertyDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/entity/IndexPropertyDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/rest/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/rest/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/IndexService.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/IndexService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/SearchPostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/SearchPostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/SearchPrepareService.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/SearchPrepareService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/impl/SearchPostServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/impl/SearchPostServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/impl/SearchPrepareServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/impl/SearchPrepareServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/impl/TestQu.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/impl/TestQu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/impl/indexServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/service/impl/indexServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/util/Dto/EsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/searchEntity/Dto/EsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/util/ElasticSearchUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/utils/ElasticSearchUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/util/GetOrDefault.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/util/LoadTextByLineMulti.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/util/LoadTextByLineMulti.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/util/MyStringUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/util/MysqlUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/util/OutPutUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/util/RegUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/util/RegUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/src/main/java/com/wzr/yi/util/ThreadPoolUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/Constant/Constant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/Factory/ThreadFactoryName.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/bean/BeanUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/bean/BeanUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/bean/EsRequestBody.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/bean/EsResponse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/bean/RecommendBody.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/config/DruidPool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/config/ElasticsearchConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/config/MysqlConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/config/SearchDataSource.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/config/Test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/config/Test2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/controller/esDataController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/controller/esDataController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/controller/homeController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/controller/searchController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/controller/testController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/dto/BangdanDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/entity/EntityCommentInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/entity/EntityCommentInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/entity/IndexProperty.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/entity/IndexProperty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/entity/IndexPropertyDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/entity/IndexPropertyDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/rest/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/rest/IndexController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/IndexService.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/IndexService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/SearchPostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/SearchPostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/SearchPrepareService.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/SearchPrepareService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/SearchPostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/SearchPostServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/SearchPrepareServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/SearchPrepareServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/TestQu.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/TestQu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/indexServiceImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/indexServiceImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/indexServiceImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/indexServiceImpl$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/indexServiceImpl$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/indexServiceImpl$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/indexServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/service/impl/indexServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/Dto/EsPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/ElasticSearchUtil$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/ElasticSearchUtil$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/ElasticSearchUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/GetOrDefault.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/LoadTextByLineMulti.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/LoadTextByLineMulti.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/MyStringUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/MysqlUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/OutPutUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/RegUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/RegUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/search/target/classes/com/wzr/yi/util/ThreadPoolUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yi-system/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/yi-system/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yi-system/src/main/java/com/wzr/yi/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/yi-system/src/main/java/com/wzr/yi/MainApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yi-system/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/yi-system/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yi-system/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/yi-system/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yi-system/target/classes/com/wzr/yi/MainApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/yi-system/target/classes/com/wzr/yi/MainApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yi-system/yi-system.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yi.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+        <option value="spring-beans.schema" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file:///usr/local/opt/go/libexec" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="1.8" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="29wDe47dHxVqaKSTqnQOXLDswri" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="go.formatter.settings.were.checked" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/common/src/main/resources" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="模块" />
+    <property name="project.structure.proportion" value="0.16298342" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="show.run.dashboard.notification" value="false" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common/src/main/resources" />
+      <recent name="$PROJECT_DIR$/dataprocess/src/main/resources" />
+      <recent name="$PROJECT_DIR$/friends/src/main/resources" />
+      <recent name="$PROJECT_DIR$/kankan/src/main/resources" />
+      <recent name="$PROJECT_DIR$/login/src/main/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common/src/main/java/com/wzr/common/config" />
+      <recent name="$PROJECT_DIR$/login/src/main/java/com/wzr/yi/sql" />
+      <recent name="$PROJECT_DIR$/.idea/libraries" />
+      <recent name="$PROJECT_DIR$/yi-system/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.wzr.friends.service" />
+      <recent name="com.wzr.friends.service.Impl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.wzr.yi.util" />
+      <recent name="com.wzr.common.utils" />
+      <recent name="com.wzr.kandan.entity" />
+      <recent name="com.wzr.yi.kafka.producer" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.friendsApplication">
+    <configuration name="SearchApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wzr.yi.SearchApplication" />
+      <module name="search" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wzr.yi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="yi-system" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzr.yi.MainApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="search" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wzr.yi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzr.yi.SearchApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="YisearchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="yisearch-system" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzr.yi.YisearchApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="commonApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="common" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzr.yi.common.commonApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="dataprocessApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="dataprocess" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wzr.yi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzr.yi.dataprocessApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="dataprocessApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="dataprocess" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzr.yi.dataprocess.dataprocessApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="friendsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="friends" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzr.yi.friendsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="kankanApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="kankan" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wzr.yi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzr.yi.kankanApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="kankanApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="kankan" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzr.yi.kandan.kankanApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="loginApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="login" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wzr.yi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzr.yi.loginApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="loginApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="login" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.wzr.yi.login.loginApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.dataprocessApplication (1)" />
+        <item itemvalue="Spring Boot.kankanApplication (1)" />
+        <item itemvalue="Spring Boot.SearchApplication (1)" />
+        <item itemvalue="Spring Boot.loginApplication (1)" />
+        <item itemvalue="应用程序.SearchApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="a8239241-2de4-43b9-9254-249f29661e32" name="变更" comment="" />
+      <created>1654015345985</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654015345985</updated>
+      <workItem from="1654015349770" duration="2793000" />
+      <workItem from="1654018291590" duration="164388000" />
+      <workItem from="1654709608420" duration="79855000" />
+      <workItem from="1655045055916" duration="7459000" />
+      <workItem from="1655061428084" duration="61361000" />
+      <workItem from="1655493204379" duration="34743000" />
+      <workItem from="1655729767398" duration="7172000" />
+      <workItem from="1655739246834" duration="11000" />
+      <workItem from="1655739267033" duration="1679000" />
+      <workItem from="1655741268529" duration="1661000" />
+      <workItem from="1655743889000" duration="1415000" />
+      <workItem from="1655745451496" duration="265000" />
+      <workItem from="1655745757437" duration="1210000" />
+      <workItem from="1655747114190" duration="18305000" />
+      <workItem from="1655833118988" duration="1008000" />
+      <workItem from="1655834155929" duration="50496000" />
+      <workItem from="1656038845997" duration="13026000" />
+      <workItem from="1656071013093" duration="33446000" />
+      <workItem from="1656176376572" duration="108000" />
+      <workItem from="1656176517283" duration="2514000" />
+      <workItem from="1656179084053" duration="499000" />
+      <workItem from="1656179618084" duration="1825000" />
+      <workItem from="1656181479718" duration="1067000" />
+      <workItem from="1656182573024" duration="5101000" />
+      <workItem from="1656187754638" duration="85000" />
+      <workItem from="1656187850046" duration="298000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
+    <option featureType="dependencySupport" implementationName="java:io.grpc:grpc-protobuf" />
+    <option featureType="dependencySupport" implementationName="java:org.slf4j:jul-to-slf4j" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.xml.bind:jakarta.xml.bind-api" />
+    <option featureType="dependencySupport" implementationName="java:org.hamcrest:hamcrest-core" />
+    <option featureType="dependencySupport" implementationName="java:com.wzr:login" />
+    <option featureType="dependencySupport" implementationName="java:com.zaxxer:HikariCP" />
+    <option featureType="dependencySupport" implementationName="java:io.grpc:grpc-context" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
+    <option featureType="dependencySupport" implementationName="java:net.minidev:accessors-smart" />
+    <option featureType="dependencySupport" implementationName="java:com.google.j2objc:j2objc-annotations" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch:elasticsearch-secure-sm" />
+    <option featureType="dependencySupport" implementationName="java:com.google.code.gson:gson" />
+    <option featureType="dependencySupport" implementationName="java:org.aspectj:aspectjweaver" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.tomcat.embed:tomcat-embed-core" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml:classmate" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-test" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.datatype:jackson-datatype-jsr310" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-queries" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-core" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-transport" />
+    <option featureType="dependencySupport" implementationName="java:org.glassfish.jaxb:jaxb-runtime" />
+    <option featureType="dependencySupport" implementationName="java:io.perfmark:perfmark-api" />
+    <option featureType="dependencySupport" implementationName="java:org.skyscreamer:jsonassert" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.tomcat.embed:tomcat-embed-websocket" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.tomcat:annotations-api" />
+    <option featureType="dependencySupport" implementationName="java:ch.qos.logback:logback-classic" />
+    <option featureType="dependencySupport" implementationName="java:com.alibaba:druid" />
+    <option featureType="dependencySupport" implementationName="java:com.google.errorprone:error_prone_annotations" />
+    <option featureType="dependencySupport" implementationName="java:org.glassfish.jaxb:txw2" />
+    <option featureType="dependencySupport" implementationName="java:org.mockito:mockito-junit-jupiter" />
+    <option featureType="dependencySupport" implementationName="java:org.webjars:jquery" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch.plugin:percolator-client" />
+    <option featureType="dependencySupport" implementationName="java:org.opentest4j:opentest4j" />
+    <option featureType="dependencySupport" implementationName="java:org.objenesis:objenesis" />
+    <option featureType="dependencySupport" implementationName="java:com.tdunning:t-digest" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-tx" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter" />
+    <option featureType="dependencySupport" implementationName="java:junit:junit" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-memory" />
+    <option featureType="dependencySupport" implementationName="java:com.google.guava:listenablefuture" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.dataformat:jackson-dataformat-yaml" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-keyvalue" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-backward-codecs" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-spatial-extras" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-data-redis" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-jcl" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-web" />
+    <option featureType="dependencySupport" implementationName="java:com.alibaba:fastjson" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch:elasticsearch-x-content" />
+    <option featureType="dependencySupport" implementationName="java:io.lettuce:lettuce-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-logging" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch:elasticsearch-cli" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch:elasticsearch-ssl-config" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-aop" />
+    <option featureType="dependencySupport" implementationName="java:com.google.protobuf:protobuf-java" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-highlighter" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpcore" />
+    <option featureType="dependencySupport" implementationName="java:ch.qos.logback:logback-core" />
+    <option featureType="dependencySupport" implementationName="java:com.carrotsearch:hppc" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.commons:commons-lang3" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.core:jackson-databind" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.logging.log4j:log4j-to-slf4j" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch:elasticsearch-core" />
+    <option featureType="dependencySupport" implementationName="java:net.sf.jopt-simple:jopt-simple" />
+    <option featureType="dependencySupport" implementationName="java:com.google.android:annotations" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter" />
+    <option featureType="dependencySupport" implementationName="java:org.jboss.logging:jboss-logging" />
+    <option featureType="dependencySupport" implementationName="java:org.slf4j:slf4j-api" />
+    <option featureType="dependencySupport" implementationName="java:org.ow2.asm:asm" />
+    <option featureType="dependencySupport" implementationName="java:com.google.guava:guava" />
+    <option featureType="dependencySupport" implementationName="java:org.yaml:snakeyaml" />
+    <option featureType="dependencySupport" implementationName="java:antlr:antlr" />
+    <option featureType="dependencySupport" implementationName="java:org.mybatis:mybatis" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-sandbox" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-grouping" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-tcnative-classes" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-autoconfigure" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch.plugin:parent-join-client" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-spatial3d" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-test-autoconfigure" />
+    <option featureType="dependencySupport" implementationName="java:org.mybatis:mybatis-spring" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-json" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-expression" />
+    <option featureType="dependencySupport" implementationName="java:com.github.spullara.mustache.java:compiler" />
+    <option featureType="dependencySupport" implementationName="java:io.grpc:grpc-core" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.datatype:jackson-datatype-jdk8" />
+    <option featureType="dependencySupport" implementationName="java:org.reactivestreams:reactive-streams" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpclient" />
+    <option featureType="dependencySupport" implementationName="java:mysql:mysql-connector-java" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch.client:elasticsearch-rest-client" />
+    <option featureType="dependencySupport" implementationName="java:org.assertj:assertj-core" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.module:jackson-module-parameter-names" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch:jna" />
+    <option featureType="dependencySupport" implementationName="java:com.vaadin.external.google:android-json" />
+    <option featureType="dependencySupport" implementationName="java:org.apiguardian:apiguardian-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-jdbc" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.dataformat:jackson-dataformat-smile" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-jdbc" />
+    <option featureType="dependencySupport" implementationName="java:org.mockito:mockito-core" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.transaction:jakarta.transaction-api" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch.plugin:reindex-client" />
+    <option featureType="dependencySupport" implementationName="java:org.hdrhistogram:HdrHistogram" />
+    <option featureType="dependencySupport" implementationName="java:net.bytebuddy:byte-buddy" />
+    <option featureType="dependencySupport" implementationName="java:org.xmlunit:xmlunit-core" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter-params" />
+    <option featureType="dependencySupport" implementationName="java:org.lz4:lz4-java" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-join" />
+    <option featureType="dependencySupport" implementationName="java:commons-codec:commons-codec" />
+    <option featureType="dependencySupport" implementationName="java:com.beust:jcommander" />
+    <option featureType="dependencySupport" implementationName="java:org.hamcrest:hamcrest" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-data-jpa" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.platform:junit-platform-engine" />
+    <option featureType="dependencySupport" implementationName="java:net.bytebuddy:byte-buddy-agent" />
+    <option featureType="dependencySupport" implementationName="java:org.codehaus.mojo:animal-sniffer-annotations" />
+    <option featureType="dependencySupport" implementationName="java:org.jboss:jandex" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-aspects" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-resolver" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch.plugin:transport-netty4-client" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-oxm" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch.client:transport" />
+    <option featureType="dependencySupport" implementationName="java:io.grpc:grpc-stub" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch:elasticsearch" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-test" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-analyzers-common" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-beans" />
+    <option featureType="dependencySupport" implementationName="java:com.jayway.jsonpath:json-path" />
+    <option featureType="dependencySupport" implementationName="java:org.hibernate.common:hibernate-commons-annotations" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-codec-http" />
+    <option featureType="dependencySupport" implementationName="java:org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-jpa" />
+    <option featureType="dependencySupport" implementationName="java:joda-time:joda-time" />
+    <option featureType="dependencySupport" implementationName="java:io.grpc:grpc-protobuf-lite" />
+    <option featureType="dependencySupport" implementationName="java:org.testng:testng" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.activation:jakarta.activation-api" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-buffer" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-common" />
+    <option featureType="dependencySupport" implementationName="java:com.wzr:search" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter-engine" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpasyncclient" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-spatial" />
+    <option featureType="dependencySupport" implementationName="java:com.wzr:common" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch.plugin:lang-mustache-client" />
+    <option featureType="dependencySupport" implementationName="java:org.checkerframework:checker-compat-qual" />
+    <option featureType="dependencySupport" implementationName="java:org.xerial.snappy:snappy-java" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-codec" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-suggest" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-tomcat" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.core:jackson-annotations" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-queryparser" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-test" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.core:jackson-core" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.lucene:lucene-misc" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.kafka:kafka-clients" />
+    <option featureType="dependencySupport" implementationName="java:io.grpc:grpc-netty-shaded" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.platform:junit-platform-commons" />
+    <option featureType="dependencySupport" implementationName="java:com.fasterxml.jackson.dataformat:jackson-dataformat-cbor" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.annotation:jakarta.annotation-api" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
+    <option featureType="dependencySupport" implementationName="java:org.elasticsearch.plugin:rank-eval-client" />
+    <option featureType="dependencySupport" implementationName="java:io.grpc:grpc-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-orm" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-context-support" />
+    <option featureType="dependencySupport" implementationName="java:com.google.api.grpc:proto-google-common-protos" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.httpcomponents:httpcore-nio" />
+    <option featureType="dependencySupport" implementationName="java:com.google.code.findbugs:jsr305" />
+    <option featureType="dependencySupport" implementationName="java:io.opencensus:opencensus-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-context" />
+    <option featureType="dependencySupport" implementationName="java:org.mybatis.spring.boot:mybatis-spring-boot-starter" />
+    <option featureType="dependencySupport" implementationName="java:com.wzr:friends" />
+    <option featureType="dependencySupport" implementationName="java:com.sun.istack:istack-commons-runtime" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-aop" />
+    <option featureType="dependencySupport" implementationName="java:io.netty:netty-handler" />
+    <option featureType="dependencySupport" implementationName="java:com.google.guava:failureaccess" />
+    <option featureType="dependencySupport" implementationName="java:org.junit.jupiter:junit-jupiter-api" />
+    <option featureType="dependencySupport" implementationName="java:net.minidev:json-smart" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot-starter-web" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.tomcat.embed:tomcat-embed-el" />
+    <option featureType="dependencySupport" implementationName="java:com.sun.activation:jakarta.activation" />
+    <option featureType="dependencySupport" implementationName="java:io.opencensus:opencensus-contrib-grpc-metrics" />
+    <option featureType="dependencySupport" implementationName="java:org.apache.logging.log4j:log4j-api" />
+    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-redis" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/common/src/main/java/com/wzr/yi/common/searchEntity/EsRequestBody.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/common/src/main/java/com/wzr/yi/pythonService/TestClient.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/common/src/main/java/temp/EditDistServiceGrpc.java</url>
+          <line>151</line>
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/search/src/main/java/com/wzr/yi/searchController/searchController.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="161" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/search/src/main/java/com/wzr/yi/kafka/producer/MyPartition.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="198" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/apache/kafka/kafka-clients/3.0.0/kafka-clients-3.0.0.jar!/org/apache/kafka/clients/NetworkClient.class</url>
+          <line>412</line>
+          <option name="timeStamp" value="199" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/login/src/main/java/com/wzr/yi/rest/userController.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="205" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/yisearch_system$MainApplication.ic" NAME="MainApplication 覆盖结果" MODIFIED="1656076721384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>

@@ -1,0 +1,102 @@
+
+server:
+  port: 8083
+spring:
+  application:
+    name: friends-service
+  datasource:
+    url: jdbc:mysql://101.43.102.16:3306/yisearch?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: Wzr@3379779
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    # 初始化连接的数量
+    initialSize: 5
+    # 最大连接的数量
+    maxActive: 120
+    # 获取连接的最大等待时间（毫秒）
+    maxWait: 3000
+    timeBetweenEvictionRunsMillis: 60000 #配置间隔多久才进⾏⼀次检测，检测需要关闭的空闲连接，毫秒
+    #    minEvictableIdleTimeMillis: 300000 #配置⼀个连接在池中最⼩⽣存的时间，毫秒
+    #    maxEvictableIdleTimeMillis: 900000 #配置⼀个连接在池中最⼤⽣存的时间，毫秒
+    validationQuery: SELECT 1 FROM DUAL #⽤来检测连接是否有效的sql，要求是⼀个查询语句，常⽤select 'x'。如果          validationQuery为null，testOnBorrow、
+    testWhileIdle: true #建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间⼤于timeBetweenEvictionRunsMillis，执⾏validationQue
+    testOnBorrow: false #申请连接时执⾏validationQuery检测连接是否有效，做了这个配置会降低性能。
+    testOnReturn: false #归还连接时执⾏validationQuery检测连接是否有效，做了这个配置会降低性能
+    filters: stat,wall,log4j2
+    # 调整了配置文件发现可以打开了
+    druid:
+      username: root
+      password: Wzr@3379779
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      statViewServlet: # 慢sql记录
+        enabled: true
+        url-pattern: /monitor/druid/*
+      filter:
+        statFilter:
+          # 慢SQL记录
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        stat:
+          # 慢SQL记录
+          enabled: true
+          log-slow-sql: true
+          slow-sql-millis: 1000
+          merge-sql: true
+        wall:
+          config:
+          multi-statement-allow: true
+      # 监控过滤器
+      web-stat-filter:
+        enabled: true
+        exclusions:
+          - "*.js"
+          - "*.gif"
+          - "*.jpg"
+          - "*.png"
+          - "*.css"
+          - "*.ico"
+          - "/monitor/druid/*"
+
+  datasource1:
+    url: jdbc:mysql://101.43.102.16:3306/yisearch?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: Wzr@3379779
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  redis:
+    #?????
+    database: 6
+    host: 101.43.102.16
+    port: 6324
+    password: autumn
+    timeout: 5000
+  main:
+    allow-bean-definition-overriding: true
+es:
+  host: 9.135.76.106
+  port: 9300
+  cluster:
+    name: my-application
+  client:
+    transport:
+      sniff:  false
+  poolSize: 5
+
+file:
+  testFile: "/Users/zhenrenwu/tx/long_video_base_data/entity_diff/tupu_schema/tupu_all_entity_2022-05-10.txt"
+
+#密码加密传输，前端公钥加密，后端私钥解密
+rsa:
+  private_key: MIIBUwIBADANBgkqhkiG9w0BAQEFAASCAT0wggE5AgEAAkEA0vfvyTdGJkdbHkB8mp0f3FE0GYP3AYPaJF7jUd1M0XxFSE2ceK3k2kw20YvQ09NJKk+OMjWQl9WitG9pB6tSCQIDAQABAkA2SimBrWC2/wvauBuYqjCFwLvYiRYqZKThUS3MZlebXJiLB+Ue/gUifAAKIg1avttUZsHBHrop4qfJCwAI0+YRAiEA+W3NK/RaXtnRqmoUUkb59zsZUBLpvZgQPfj1MhyHDz0CIQDYhsAhPJ3mgS64NbUZmGWuuNKp5coY2GIj/zYDMJp6vQIgUueLFXv/eZ1ekgz2Oi67MNCk5jeTF2BurZqNLR3MSmUCIFT3Q6uHMtsB9Eha4u7hS31tj1UWE+D+ADzp59MGnoftAiBeHT7gDMuqeJHPL4b+kC+gzV4FGTfhR9q3tTbklZkD2A==

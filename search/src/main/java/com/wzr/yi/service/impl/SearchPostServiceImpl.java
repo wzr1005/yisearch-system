@@ -1,6 +1,6 @@
 package com.wzr.yi.service.impl;
 
-import com.wzr.yi.bean.EsRequestBody;
+import com.wzr.yi.common.searchEntity.EsRequestBody;
 import com.wzr.yi.service.SearchPostService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

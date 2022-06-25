@@ -1,32 +1,25 @@
 package com.wzr.yi.rest;
 
-import com.wzr.yi.config.bean.DruidLoginPool;
 import com.wzr.yi.config.bean.MD5Utils;
-import com.wzr.yi.config.bean.RsaProperties;
-import com.wzr.yi.entity.AuthUserDto;
 import com.wzr.yi.entity.YiUser;
-import com.wzr.yi.exception.BadRequestException;
 import com.wzr.yi.service.UserService;
-import com.wzr.yi.utils.RsaUtils;
+import com.wzr.yi.common.config.DruidPool;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.http.Header;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import static com.wzr.yi.utils.MysqlUtils.generateSqlInsert;
+import static com.wzr.yi.common.utils.MysqlUtils.generateSqlInsert;
+
 
 /**
  * @autor zhenrenwu
@@ -40,10 +33,12 @@ public class userController {
 
     private final UserService userService;
 
-    private final DruidLoginPool druidLoginPool;
+    private final DruidPool druidPool;
 
     @Resource
     private RedisTemplate redisTemplate;
+
+    private final RestTemplate restTemplate;
     // 注册,
     @PostMapping("/register")
     public String register(@RequestBody YiUser yiUser){
@@ -56,7 +51,7 @@ public class userController {
            return response;
         }
         String sql = generateSqlInsert(yiUser);
-        if(druidLoginPool.executeSqlUpdate(sql)){
+        if(druidPool.executeSqlUpdate(sql)){
             return "注册成功！";
 
         }
@@ -74,7 +69,7 @@ public class userController {
         }
         // 用账户密码登录
         String sql = String.format("select passwd, salt from yiuser where userCount = '%s'", yiUser.getUserCount());
-        List<Map<String, Object>> list = druidLoginPool.executeSqlQuery(sql);
+        List<Map<String, Object>> list = druidPool.executeSqlQuery(sql);
         String passwd = (String) list.get(0).get("passwd");
         String salt = (String) list.get(0).get("salt");
         if(MD5Utils.validInputPass(yiUser.getPasswd(), salt, passwd)){
@@ -87,7 +82,15 @@ public class userController {
     @PostMapping("/logout")
     public String logout(@RequestBody YiUser yiUser, HttpServletRequest request){
         String token = request.getHeader("Postman-Token");
-        redisTemplate.opsForValue().getAndDelete(token);
+        redisTemplate.delete(token);
         return "退出成功！";
+    }
+
+    @GetMapping("/testLogin")
+    public String testLogin(){
+
+        log.info("调用kankan服务的类");
+        String ans = restTemplate.getForObject("http://localhost:8888/kankan/testKankan", String.class);
+        return ans;
     }
 }

@@ -5,8 +5,8 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.wzr.yi.Constant.Constant.ImpurityArr;
-import static com.wzr.yi.Constant.Constant.resourceListCN;
+import static com.wzr.yi.common.constant.Constant.ImpurityArr;
+import static com.wzr.yi.common.constant.Constant.resourceListCN;
 
 /**
  * @autor zhenrenwu

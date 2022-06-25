@@ -1,6 +1,6 @@
 package com.wzr.yi.service;
 
-import com.wzr.yi.bean.EsRequestBody;
+import com.wzr.yi.common.searchEntity.EsRequestBody;
 import com.wzr.yi.entity.IndexPropertyDto;
 import org.springframework.http.ResponseEntity;
 

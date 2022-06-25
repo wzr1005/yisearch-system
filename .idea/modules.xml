@@ -3,8 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dataprocess/dataprocess.iml" filepath="$PROJECT_DIR$/dataprocess/dataprocess.iml" />
       <module fileurl="file://$PROJECT_DIR$/friends/friends.iml" filepath="$PROJECT_DIR$/friends/friends.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kankan/kankan.iml" filepath="$PROJECT_DIR$/kankan/kankan.iml" />
       <module fileurl="file://$PROJECT_DIR$/login/login.iml" filepath="$PROJECT_DIR$/login/login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recommend/recommend.iml" filepath="$PROJECT_DIR$/recommend/recommend.iml" />
       <module fileurl="file://$PROJECT_DIR$/search/search.iml" filepath="$PROJECT_DIR$/search/search.iml" />
       <module fileurl="file://$PROJECT_DIR$/yi.iml" filepath="$PROJECT_DIR$/yi.iml" />
       <module fileurl="file://$PROJECT_DIR$/yi-system/yi-system.iml" filepath="$PROJECT_DIR$/yi-system/yi-system.iml" />

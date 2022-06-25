@@ -3,8 +3,8 @@ package com.wzr.yi.service.impl;
  * @autor zhenrenwu
  * @date 2022/6/4 12:38 下午
  */
-import com.wzr.yi.bean.EsRequestBody;
 import com.wzr.yi.service.SearchPrepareService;
+import com.wzr.yi.common.searchEntity.EsRequestBody;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;

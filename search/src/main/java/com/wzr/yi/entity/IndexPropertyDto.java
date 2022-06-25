@@ -4,9 +4,8 @@ import lombok.Data;
 
 import java.util.List;
 
-import static com.wzr.yi.util.MyStringUtils.getValueOrDefault;
-import static com.wzr.yi.util.MyStringUtils.geyKeyWordFromList;
-
+import static com.wzr.yi.common.utils.MyStringUtils.getValueOrDefault;
+import static com.wzr.yi.common.utils.MyStringUtils.geyKeyWordFromList;
 
 /**
  * @autor zhenrenwu
